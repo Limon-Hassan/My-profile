@@ -1,0 +1,26 @@
+@import 'tailwindcss';
+
+@theme {
+  --font-Inter: 'Inter', 'sans-serif';
+}
+
+.animated-gradient-text {
+  background: linear-gradient(90deg, purple 0%, pink 50%, red 100%);
+  background-size: 300% 100%;
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  animation: gradientFlow 12s ease-in-out infinite;
+}
+
+@keyframes gradientFlow {
+  0% {
+    background-position: 0% 0%;
+  }
+  50% {
+    background-position: 100% 0%;
+  }
+  100% {
+    background-position: 0% 0%;
+  }
+}
