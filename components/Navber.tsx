@@ -7,9 +7,9 @@ const Navber = () => {
   return (
     <>
       <nav className="py-3.5">
-        <Container className="max-w-6xl">
+        <Container className="max-w-400">
           <div className="flex items-center justify-between py-4">
-            <div className='flex items-center gap-3.5 group hover:scale-110 transition-transform duration-300 cursor-pointer'>
+            <div className="flex items-center gap-3.5 group hover:scale-110 transition-transform duration-300 cursor-pointer">
               <div className="w-12 h-10 flex items-center justify-center bg-linear-to-r from-purple-500 via-pink-500 to-red-500 rounded-md group-hover:rotate-180 transition-transform duration-400">
                 <FaCode size={24} />
               </div>
@@ -56,7 +56,7 @@ const Navber = () => {
                 </a>
               </div>
             </div>
-            <button className="flex items-center gap-1 text-white px-3 py-2 cursor-pointer font-Inter font-medium rounded-md bg-linear-to-r from-purple-500 via-pink-500 to-red-500 hover:from-purple-600 hover:via-pink-600 hover:to-red-600 transition-colors duration-300">
+            <button className="flex items-center gap-1 text-white px-3 py-2 cursor-pointer font-Inter font-medium rounded-md bg-linear-to-r from-purple-500 via-pink-500 to-red-500 hover:from-purple-600 hover:via-pink-600 hover:to-red-600 transition-colors duration-300 hover:shadow-[0px_10px_15px_0px_rgba(255,69,83,0.6)]">
               <LuDownload size={18} />
               <span className="ml-2">Resume</span>
             </button>
