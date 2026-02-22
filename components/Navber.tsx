@@ -43,6 +43,15 @@ const Navber = () => {
                   href="#"
                   className="text-white border border-white px-3 py-2 hover:bg-white hover:text-purple-600 transition-colors duration-300 font-Inter font-medium"
                 >
+                  Skills
+                </a>
+              </div>
+              <div className="relative">
+                <div className="w-0.5 h-10 bg-white absolute -top-12 left-1/2 transform -translate-x-1/2"></div>
+                <a
+                  href="#"
+                  className="text-white border border-white px-3 py-2 hover:bg-white hover:text-purple-600 transition-colors duration-300 font-Inter font-medium"
+                >
                   Projects
                 </a>
               </div>

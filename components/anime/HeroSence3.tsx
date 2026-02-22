@@ -148,7 +148,7 @@ function SnowParticles() {
 
 export default function HeroSence3() {
   return (
-    <div className="absolute inset-0 z-0">
+    <div className="absolute h-screen inset-0 z-0">
       <Canvas camera={{ position: [0, 0, 12], fov: 60 }}>
         <SnowParticles />
       </Canvas>

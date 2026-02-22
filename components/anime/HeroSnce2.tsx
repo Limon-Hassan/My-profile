@@ -49,7 +49,7 @@ function WireframeIcosahedron() {
 
 const HeroSnce2 = () => {
   return (
-    <div className="absolute inset-0 z-0">
+    <div className="absolute h-screen inset-0 z-0">
       <Canvas camera={{ position: [20, 0, 20], fov: 40 }}>
         <ambientLight intensity={0.6} />
         <directionalLight position={[10, 10, 10]} intensity={1} />

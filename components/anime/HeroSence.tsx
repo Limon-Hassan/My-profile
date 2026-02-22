@@ -45,7 +45,7 @@ function OrbitRing({ radius, speed, size, color }: any) {
 
 export default function HeroScene() {
   return (
-    <div className="absolute inset-0 z-0">
+    <div className="absolute h-screen inset-0 z-0">
       <Canvas
         camera={{ position: [0, 0, 6] }}
         gl={{ toneMapping: THREE.NoToneMapping }}

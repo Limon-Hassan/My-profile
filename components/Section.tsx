@@ -1,6 +1,9 @@
 'use client';
 import React, { useEffect, useState } from 'react';
 import Container from './container/Container';
+import { IoLogoGithub } from 'react-icons/io';
+import { FaArrowDown, FaLinkedinIn } from 'react-icons/fa';
+import { MdMailOutline } from 'react-icons/md';
 
 const Section = () => {
   let tittle = ['Full-Stack Developer', 'Mern Stack Developer', 'Web Designer'];
@@ -32,7 +35,7 @@ const Section = () => {
   }, [index, text, isDeleting]);
 
   return (
-    <section className="mt-25">
+    <section className="my-25 relative">
       <Container className="max-w-400">
         <div className="flex items-center justify-between">
           <div>
@@ -58,7 +61,7 @@ const Section = () => {
               <button className="bg-gray-300/20 w-27.5 h-7.5 flex items-center justify-center gap-1 rounded-md border border-blue-800">
                 <img
                   className="w-5 h-5 object-cover bg-center"
-                  src="/next.png"
+                  src="/white.svg"
                   alt="Next.js"
                 />
                 Next.js
@@ -122,9 +125,25 @@ const Section = () => {
               financial platforms, ensuring secure systems and smooth user
               experience.
             </div>
-            <div className="flex items-center gap-4">
-              <button>Learn more</button>
-              <button>Download CV</button>
+            <div className="flex items-center gap-3 my-3">
+              <a
+                href="https://github.com/Limon-Hassan"
+                className="w-15 h-15 rounded-full flex items-center justify-center hover:bg-gray-300/30 hover:border hover:border-blue-800 hover:text-white cursor-pointer transition-all ease-in-out duration-300"
+              >
+                <IoLogoGithub size={24} />
+              </a>
+              <a
+                href="https://linkedin.com/in/mahammud-hassan-limon"
+                className="w-15 h-15 rounded-full flex items-center justify-center hover:bg-gray-300/30 hover:border hover:border-blue-800 hover:text-blue-500 cursor-pointer transition-all ease-in-out duration-300"
+              >
+                <FaLinkedinIn size={24} />
+              </a>
+              <a
+                href="mailto:mahammudhassanlimon@gmail.com"
+                className="w-15 h-15 rounded-full flex items-center justify-center hover:bg-green-300/30 hover:border hover:border-green-500 hover:text-green-500 cursor-pointer transition-all ease-in-out duration-300"
+              >
+                <MdMailOutline size={24} />
+              </a>
             </div>
           </div>
           <div className="w-130 h-auto">
@@ -136,6 +155,9 @@ const Section = () => {
           </div>
         </div>
       </Container>
+      <span className="absolute -bottom-20 left-1/2 transform -translate-x-1/2 animate-bounce text-white">
+        <FaArrowDown size={28} />
+      </span>
     </section>
   );
 };
