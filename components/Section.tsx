@@ -150,7 +150,7 @@ const Section = () => {
             <img
               className="w-full h-full object-cover"
               src="/hero-bg.svg"
-              alt=""
+              alt="Hero"
             />
           </div>
         </div>

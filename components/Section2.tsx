@@ -1,3 +1,4 @@
+'use client';
 import React from 'react';
 import Container from './container/Container';
 import { MdOutlineMailOutline } from 'react-icons/md';
@@ -7,8 +8,33 @@ import {
   IoLocationOutline,
 } from 'react-icons/io5';
 import { LiaCertificateSolid } from 'react-icons/lia';
+import { useRef, useState } from 'react';
 
 const Section2 = () => {
+  const videoRef = useRef<HTMLVideoElement>(null);
+
+  const [isPlaying, setIsPlaying] = useState(false);
+  const [isEnded, setIsEnded] = useState(false);
+
+  const togglePlay = () => {
+    const video = videoRef.current;
+    if (!video) return;
+
+    if (video.paused || video.ended) {
+      video.play();
+      setIsPlaying(true);
+      setIsEnded(false);
+    } else {
+      video.pause();
+      setIsPlaying(false);
+    }
+  };
+
+  const handleEnded = () => {
+    setIsPlaying(false);
+    setIsEnded(true);
+  };
+
   return (
     <section className=" py-14 bg-linear-to-b from-[#09071e] to-[#282857]">
       <Container className="max-w-400">
@@ -23,26 +49,43 @@ const Section2 = () => {
         </div>
         <div className="flex items-center gap-10 justify-center">
           <div>
-            <h2 className="text-3xl font-Inter font-bold text-white mb-4">
-              Passionate Full-Stack Developer
-            </h2>
-            <p className="leading-relaxed text-sm font-Inter w-lg mb-3">
-              I'm a passionate Full-Stack Developer with real-world experience
-              in building and scaling web applications.I combined a practical
-              mindset with creativity to solve problems, improve performance,
-              and deliver solutions that truly support business goals. I love
-              turning ideas into functional, user-friendly experiences.
-            </p>
-            <h3 className="text-2xl font-Inter font-bold text-purple-500 mb-4">
-              My Journey
-            </h3>
-            <p className="leading-relaxed text-sm font-Inter w-lg mb-3">
-              My journey in software development started with curiosity and has
-              evolved into a passion for creating solutions that make a real
-              impact. I specialize in the MERN stack and have experience working
-              with cutting-edge technologies like AI integration, real-time
-              communications, and cloud infrastructure.
-            </p>
+            <div className="relative w-120 h-90 bg-black rounded-2xl overflow-hidden mb-3 border border-purple-600 p-1">
+              <video
+                ref={videoRef}
+                src="/love.mp4"
+                className="w-full h-full object-contain cursor-pointer rounded-2xl"
+                preload="metadata"
+                onClick={togglePlay}
+                onEnded={handleEnded}
+              />
+
+              {!isPlaying && (
+                <button
+                  onClick={togglePlay}
+                  className="absolute inset-0 flex items-center justify-center"
+                >
+                  <div className="bg-white hover:bg-gray-300 transition duration-300 rounded-full flex items-center justify-center w-15 h-15">
+                    {isEnded ? (
+                      <span className="w-8 h-8 cursor-pointer">
+                        <img
+                          className="w-full h-full object-contain"
+                          src="/Replay.png"
+                          alt="Replay"
+                        />
+                      </span>
+                    ) : (
+                      <span className="w-8 h-8 cursor-pointer">
+                        <img
+                          className="w-full h-full object-contain"
+                          src="/Play.png"
+                          alt="Play"
+                        />
+                      </span>
+                    )}
+                  </div>
+                </button>
+              )}
+            </div>
 
             <h3 className="text-2xl font-Inter font-bold text-cyan-400 mb-4">
               What I Bring

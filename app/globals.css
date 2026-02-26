@@ -4,6 +4,10 @@
   --font-Inter: 'Inter', 'sans-serif';
 }
 
+/* html {
+  scroll-behavior: smooth;
+} */
+
 .animated-gradient-text {
   background: linear-gradient(90deg, purple 0%, pink 50%, red 100%);
   background-size: 300% 100%;
@@ -25,11 +29,8 @@
   }
 }
 
-
 .animated-border-box {
   position: relative;
-  width: 400px;
-  height: 230px;
   border-radius: 16px;
   overflow: hidden;
   box-shadow: 0 0 30px rgba(168, 85, 247, 0.3);
@@ -37,29 +38,24 @@
 
 /* Rotating conic gradient */
 .animated-border-box::before {
-  content: "";
+  content: '';
   position: absolute;
   top: -50%;
   left: -50%;
   right: -50%;
   bottom: -50%;
-  background: conic-gradient(
-    transparent,
-    transparent,
-    #00a6ff
-  );
+  background: conic-gradient(transparent, transparent, #67009e);
   animation: rotateBorder 6s linear infinite; /* 👈 slow speed */
 }
 
 /* Inner content layer */
 .animated-border-box .content {
   position: absolute;
-  inset: 4px; /* border thickness */
-  background: black;
+  top: 8px;
+  left: 8px;
+  right: 8px;
+  bottom: 8px;
   border-radius: 12px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
   color: white;
   z-index: 1;
 }
