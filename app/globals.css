@@ -4,9 +4,9 @@
   --font-Inter: 'Inter', 'sans-serif';
 }
 
-/* html {
+html {
   scroll-behavior: smooth;
-} */
+}
 
 .animated-gradient-text {
   background: linear-gradient(90deg, purple 0%, pink 50%, red 100%);
@@ -36,7 +36,6 @@
   box-shadow: 0 0 30px rgba(168, 85, 247, 0.3);
 }
 
-/* Rotating conic gradient */
 .animated-border-box::before {
   content: '';
   position: absolute;
@@ -45,10 +44,9 @@
   right: -50%;
   bottom: -50%;
   background: conic-gradient(transparent, transparent, #67009e);
-  animation: rotateBorder 6s linear infinite; /* 👈 slow speed */
+  animation: rotateBorder 6s linear infinite;
 }
 
-/* Inner content layer */
 .animated-border-box .content {
   position: absolute;
   top: 8px;
@@ -60,8 +58,90 @@
   z-index: 1;
 }
 
-/* Animation keyframes */
 @keyframes rotateBorder {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+.animated-border-box {
+  position: relative;
+  border-radius: 16px;
+  overflow: hidden;
+  box-shadow: 0 0 30px rgba(168, 85, 247, 0.3);
+}
+
+.animated-border-box::before {
+  content: '';
+  position: absolute;
+  top: -50%;
+  left: -50%;
+  right: -50%;
+  bottom: -50%;
+  background: conic-gradient(transparent, transparent, #67009e);
+  animation: rotateBorder 6s linear infinite;
+}
+
+.animated-border-box .content {
+  position: absolute;
+  top: 8px;
+  left: 8px;
+  right: 8px;
+  bottom: 8px;
+  border-radius: 12px;
+  color: white;
+  z-index: 1;
+}
+
+@keyframes rotateBorder {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+
+
+.animated-product-box {
+  position: relative;
+  border-radius: 16px;
+  overflow: hidden;
+}
+
+.animated-product-box::before {
+  content: "";
+  position: absolute;
+  top: -50%;
+  left: -50%;
+  right: -50%;
+  bottom: -50%;
+  background: conic-gradient(transparent, transparent, #bd44ff);
+  animation: RotateBorder 6s linear infinite;
+  opacity: 0;
+  transition: opacity .3s;
+}
+
+.animated-product-box:hover::before {
+  opacity: 1;
+}
+
+.animated-product-box .content {
+  position: absolute;
+  top: 8px;
+  left: 8px;
+  right: 8px;
+  bottom: 8px;
+  border-radius: 12px;
+  z-index: 1;
+}
+
+
+
+@keyframes RotateBorder {
   0% {
     transform: rotate(0deg);
   }
