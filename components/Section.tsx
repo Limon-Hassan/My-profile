@@ -4,6 +4,7 @@ import Container from './container/Container';
 import { IoLogoGithub } from 'react-icons/io';
 import { FaArrowDown, FaLinkedinIn } from 'react-icons/fa';
 import { MdMailOutline } from 'react-icons/md';
+import LinkButton from './LinkButtons/LinkButton';
 
 const Section = () => {
   let tittle = ['Full-Stack Developer', 'Mern Stack Developer', 'Web Designer'];
@@ -125,25 +126,8 @@ const Section = () => {
               financial platforms, ensuring secure systems and smooth user
               experience.
             </div>
-            <div className="flex items-center gap-3 my-3">
-              <a
-                href="https://github.com/Limon-Hassan"
-                className="w-15 h-15 rounded-full flex items-center justify-center hover:bg-gray-300/30 hover:border hover:border-blue-800 hover:text-white cursor-pointer transition-all ease-in-out duration-300"
-              >
-                <IoLogoGithub size={24} />
-              </a>
-              <a
-                href="https://linkedin.com/in/mahammud-hassan-limon"
-                className="w-15 h-15 rounded-full flex items-center justify-center hover:bg-gray-300/30 hover:border hover:border-blue-800 hover:text-blue-500 cursor-pointer transition-all ease-in-out duration-300"
-              >
-                <FaLinkedinIn size={24} />
-              </a>
-              <a
-                href="mailto:mahammudhassanlimon@gmail.com"
-                className="w-15 h-15 rounded-full flex items-center justify-center hover:bg-green-300/30 hover:border hover:border-green-500 hover:text-green-500 cursor-pointer transition-all ease-in-out duration-300"
-              >
-                <MdMailOutline size={24} />
-              </a>
+            <div className="my-3">
+              <LinkButton />
             </div>
           </div>
           <div className="w-130 h-auto">
