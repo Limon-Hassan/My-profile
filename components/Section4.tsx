@@ -54,9 +54,9 @@ const Section4 = () => {
       <section className="mb-20">
         <Container className="max-w-400">
           <div className="mb-20">
-            <h1 className="text-4xl font-bold text-center animated-gradient-text font-Inter">
+            <h2 className="text-4xl font-bold text-center animated-gradient-text font-Inter">
               My Projects
-            </h1>
+            </h2>
             <p className="text-center text-[18px] font-medium max-w-2xl font-Inter mt-4 text-gray-300 mx-auto">
               Explore More About My Real-Time Deployed Projects
             </p>
