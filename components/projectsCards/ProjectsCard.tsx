@@ -16,7 +16,7 @@ const ProjectsCard = ({ data }: { data: any }) => {
   };
 
   return (
-    <div className="animated-product-box w-131.25 h-87.5 group cursor-pointer hover:scale-95 transition-all duration-500 ease-in-out">
+    <a href={data.Link} target="_blank" rel="noopener noreferrer" className="animated-product-box w-131.25 h-87.5 group cursor-pointer hover:scale-95 transition-all duration-500 ease-in-out">
       <div className="content bg-purple-700/70 hover:bg-black p-5  transition-transform duration-300">
         <img
           className="z-9999 transition-all duration-500 group-hover:rounded-xl"
@@ -38,7 +38,7 @@ const ProjectsCard = ({ data }: { data: any }) => {
           </button>
         </div>
       </div>
-    </div>
+    </a>
   );
 };
 

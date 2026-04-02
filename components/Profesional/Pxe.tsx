@@ -7,7 +7,7 @@ import { LuSquareArrowOutUpRight } from 'react-icons/lu';
 
 const Pxe = ({ item }: { item: any }) => {
   return (
-    <div className="flex flex-col items-center gap-10 mt-14">
+    <div className="flex flex-col items-center gap-10 mt-14 hover:scale-105 transition-transform duration-300">
       <div className="bg-purple-400/20 w-6xl rounded-lg p-10 flex justify-between">
         <div>
           <div className="flex items-center gap-3 mb-4">

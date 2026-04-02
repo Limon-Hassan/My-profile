@@ -17,7 +17,7 @@ const Section5 = () => {
         'Improved website performance by 40%',
         'Implemented secure authentication system',
         'Developed responsive UI for improved user experience',
-        'Has setup street fast courier service Api for logistics management',
+        'Integrated Steadfast Courier API for logistics management',
       ],
       technologies: [
         { name: 'React.js', icon: '/React.png' },
@@ -33,15 +33,14 @@ const Section5 = () => {
       position: 'Full Stack Developer',
       duration: 'Sep 2025 - Nov 2025',
       location: 'Wari Dhaka',
-      type: 'Full-time • 1 mos',
+      type: 'Delivered in • 1 month',
       description:
         'I was deployed a full-stack web application for a client, handling both frontend and backend development. I implemented features such as Product management and order management and real-time updates to enhance the user experience.',
       keyAchievements: [
-        'Improved website performance by 80%',
-        'In 1 min 10000+ users can access the website without any performance issues',
-        'Developed responsive UI for improved user experience',
+        'Optimized backend queries and implemented caching, improving overall website performance by 80%',
+        'Handled 10,000+ users per minute without performance issues',
+        'Designed and implemented a high-performance responsive UI improving UX',
         'Dashboard for admin to manage the website',
-        
       ],
       technologies: [
         { name: 'React.js', icon: '/React.png' },
