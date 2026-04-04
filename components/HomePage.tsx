@@ -1,3 +1,4 @@
+import Footer from './Footer';
 import GetInTouch from './GetInTouch';
 import Navber from './Navber';
 import Section from './Section';
@@ -18,6 +19,7 @@ export default function HomePage() {
       <Section5 />
       <Section6 />
       <GetInTouch />
+      <Footer />
     </>
   );
 }

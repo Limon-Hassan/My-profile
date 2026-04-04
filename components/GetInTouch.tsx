@@ -6,6 +6,9 @@ import { MdOutlineEmail } from 'react-icons/md';
 import { GrDocumentText } from 'react-icons/gr';
 import { BsSend } from 'react-icons/bs';
 import SendButton from './Button/SendButton';
+import { FiPhone } from 'react-icons/fi';
+import { IoLocationOutline } from 'react-icons/io5';
+import { FaGithub, FaLinkedin } from 'react-icons/fa';
 
 const GetInTouch = () => {
   return (
@@ -19,10 +22,13 @@ const GetInTouch = () => {
             Have a project in mind or want to collaborate? I'd love to hear from
             you. Let's create something amazing together!
           </p>
-          <div className="mx-auto border-2 border-purple-400 p-20 bg-purple-400/20 rounded-lg mt-10 max-w-7xl">
+          <div className="mx-auto border-2 border-purple-400 p-20 bg-purple-400/20 rounded-lg mt-10 max-w-7xl flex items-center justify-between gap-20">
             <div>
               <h4 className="flex items-center gap-3 text-3xl font-bold mb-5">
-                <LuMessageCircle className="text-purple-500 text-purple-5" size={28} />
+                <LuMessageCircle
+                  className="text-purple-500 text-purple-5"
+                  size={28}
+                />
                 Send Message
               </h4>
               <div className="flex flex-col gap-1 mt-5 relative">
@@ -93,11 +99,84 @@ const GetInTouch = () => {
                   rows={4}
                 />
               </div>
-              {/* <button className="bg-purple-500 hover:bg-purple-600 text-white font-bold py-2 px-4 rounded-lg mt-5">
-                <BsSend className="text-white" size={28} />
-                Send Message
-              </button> */}
+
               <SendButton />
+            </div>
+            <div className="w-1 h-163.75 bg-white rounded-md" />
+            <div className="flex flex-col gap-8">
+              <div className="flex w-full h-auto items-center gap-3 bg-green-500/20 p-5 rounded-xl  shadow-lg shadow-green-500/20 hover:bg-green-500/30 hover:scale-105 transition-transform duration-300">
+                <span className="bg-green-500 text-white py-5 px-5 rounded-full">
+                  <MdOutlineEmail size={28} />
+                </span>
+                <div className="flex-col">
+                  <h4 className="text-[20px] font-bold font-Inter text-white">
+                    Email
+                  </h4>
+                  <a
+                    className="text-[16px] font-Inter font-medium text-white"
+                    href="mailto:mahammudhassanlimon@gmail.com"
+                  >
+                    mahammudhassanlimon@gmail.com
+                  </a>
+                </div>
+              </div>
+              <div className="flex w-full h-auto items-center gap-3 bg-cyan-500/20 p-5 rounded-xl shadow-lg shadow-cyan-500/20 hover:bg-cyan-500/30 hover:scale-105 transition-transform duration-300">
+                <span className="bg-cyan-500 text-white py-5 px-5 rounded-full">
+                  <FiPhone size={28} />
+                </span>
+                <div className="flex-col">
+                  <h4 className="text-[20px] font-bold font-Inter text-white">
+                    Phone
+                  </h4>
+                  <a
+                    className="text-[16px] font-Inter font-medium text-white"
+                    href="tel:+8801887604100"
+                  >
+                    +8801887604100
+                  </a>
+                </div>
+              </div>
+              <div className="flex w-full h-auto items-center gap-3 bg-pink-500/20 p-5 rounded-xl shadow-lg shadow-pink-500/20 hover:bg-pink-500/30 hover:scale-105 transition-transform duration-300">
+                <span className="bg-linear-to-r from-purple-500 via-pink-500 to-red-500 text-white py-5 px-5 rounded-full">
+                  <IoLocationOutline size={28} />
+                </span>
+                <div className="flex-col">
+                  <h4 className="text-[20px] font-bold font-Inter text-white">
+                    Location
+                  </h4>
+                  <a
+                    className="text-[16px] font-Inter font-medium text-white"
+                    href="https://maps.google.com/?q=Dhaka,+Bangladesh"
+                  >
+                    Dhaka, Bangladesh
+                  </a>
+                </div>
+              </div>
+              <div className="w-full h-auto bg-gray-500/20 p-5 rounded-xl shadow-lg shadow-gray-500/20 hover:bg-gray-500/30 transition-colors duration-300">
+                <h4 className="text-[20px] font-bold font-Inter text-white mb-3">
+                  Connect on Social
+                </h4>
+                <div className="flex items-center justify-between">
+                  <a
+                    href="https://www.linkedin.com/in/mahammud-hassan-limon"
+                    className="flex items-center gap-2 bg-transparent text-white font-medium text-[20px] w-44 h-12.5 justify-center rounded-xl cursor-pointer border border-gray-500 hover:scale-105 transition-transform duration-300"
+                  >
+                    <span>
+                      <FaLinkedin size={28} />
+                    </span>
+                    LinkedIn
+                  </a>
+                  <a
+                    href="https://github.com/Limon-Hassan"
+                    className="flex items-center gap-2 bg-transparent text-white font-medium text-[20px] w-44 h-12.5 justify-center rounded-xl cursor-pointer border border-gray-500 hover:scale-105 transition-transform duration-300"
+                  >
+                    <span>
+                      <FaGithub size={28} />
+                    </span>
+                    GitHub
+                  </a>
+                </div>
+              </div>
             </div>
           </div>
         </Container>

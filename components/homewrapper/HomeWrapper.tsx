@@ -2,7 +2,6 @@ import HeroScene from '../anime/HeroSence';
 import HeroSence3 from '../anime/HeroSence3';
 import HeroSnce2 from '../anime/HeroSnce2';
 import HomePage from '../HomePage';
-import Section from '../Section';
 
 export default function HomeWrapper() {
   return (

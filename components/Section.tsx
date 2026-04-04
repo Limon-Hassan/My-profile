@@ -5,6 +5,7 @@ import { IoLogoGithub } from 'react-icons/io';
 import { FaArrowDown, FaLinkedinIn } from 'react-icons/fa';
 import { MdMailOutline } from 'react-icons/md';
 import LinkButton from './LinkButtons/LinkButton';
+import ParticlesBackground from './anime/ParticlesBackground';
 
 const Section = () => {
   let tittle = ['Full-Stack Developer', 'Mern Stack Developer', 'Web Designer'];
@@ -130,12 +131,8 @@ const Section = () => {
               <LinkButton />
             </div>
           </div>
-          <div className="w-130 h-auto">
-            <img
-              className="w-full h-full object-cover"
-              src="/hero-bg.svg"
-              alt="Hero"
-            />
+          <div className="">
+            <ParticlesBackground />
           </div>
         </div>
       </Container>
