@@ -1,3 +1,4 @@
+'use client';
 import React from 'react';
 import Container from './container/Container';
 import { LuDownload } from 'react-icons/lu';
@@ -23,7 +24,7 @@ const Navber = () => {
                 <div className="w-0.5 h-10 bg-white absolute -top-12 left-1/2 transform -translate-x-1/2"></div>
                 <a
                   href="#"
-                  className="text-white border border-white px-3 py-2 hover:bg-white hover:text-purple-600 transition-colors duration-300 font-Inter font-medium"
+                  className=" text-white border border-white px-3 py-2 hover:bg-white hover:text-purple-600 transition-colors duration-300 font-Inter font-medium"
                 >
                   Home
                 </a>
@@ -32,7 +33,7 @@ const Navber = () => {
                 <div className="w-0.5 h-10 bg-white absolute -top-12 left-1/2 transform -translate-x-1/2"></div>
                 <a
                   href="#"
-                  className="text-white border border-white px-3 py-2 hover:bg-white hover:text-purple-600 transition-colors duration-300 font-Inter font-medium"
+                  className=" text-white border border-white px-3 py-2 hover:bg-white hover:text-purple-600 transition-colors duration-300 font-Inter font-medium"
                 >
                   About
                 </a>
@@ -41,7 +42,7 @@ const Navber = () => {
                 <div className="w-0.5 h-10 bg-white absolute -top-12 left-1/2 transform -translate-x-1/2"></div>
                 <a
                   href="#"
-                  className="text-white border border-white px-3 py-2 hover:bg-white hover:text-purple-600 transition-colors duration-300 font-Inter font-medium"
+                  className=" text-white border border-white px-3 py-2 hover:bg-white hover:text-purple-600 transition-colors duration-300 font-Inter font-medium"
                 >
                   Skills
                 </a>
@@ -50,7 +51,7 @@ const Navber = () => {
                 <div className="w-0.5 h-10 bg-white absolute -top-12 left-1/2 transform -translate-x-1/2"></div>
                 <a
                   href="#"
-                  className="text-white border border-white px-3 py-2 hover:bg-white hover:text-purple-600 transition-colors duration-300 font-Inter font-medium"
+                  className=" text-white border border-white px-3 py-2 hover:bg-white hover:text-purple-600 transition-colors duration-300 font-Inter font-medium"
                 >
                   Projects
                 </a>
@@ -59,7 +60,7 @@ const Navber = () => {
                 <div className="w-0.5 h-10 bg-white absolute -top-12 left-1/2 transform -translate-x-1/2"></div>
                 <a
                   href="#"
-                  className="text-white border border-white px-3 py-2 hover:bg-white hover:text-purple-600 transition-colors duration-300 font-Inter font-medium"
+                  className=" text-white border border-white px-3 py-2 hover:bg-white hover:text-purple-600 transition-colors duration-300 font-Inter font-medium"
                 >
                   Contact
                 </a>

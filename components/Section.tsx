@@ -1,9 +1,7 @@
 'use client';
 import React, { useEffect, useState } from 'react';
 import Container from './container/Container';
-import { IoLogoGithub } from 'react-icons/io';
-import { FaArrowDown, FaLinkedinIn } from 'react-icons/fa';
-import { MdMailOutline } from 'react-icons/md';
+import { FaArrowDown } from 'react-icons/fa';
 import LinkButton from './LinkButtons/LinkButton';
 import ParticlesBackground from './anime/ParticlesBackground';
 
@@ -131,7 +129,7 @@ const Section = () => {
               <LinkButton />
             </div>
           </div>
-          <div className="">
+          <div className="absolute -right-20 top-1/2 transform -translate-y-1/2">
             <ParticlesBackground />
           </div>
         </div>

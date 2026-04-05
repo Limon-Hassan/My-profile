@@ -72,7 +72,7 @@ const Section3 = () => {
     },
   ];
   return (
-    <section className="py-14 mb-20 ">
+    <section className="pt-15 w-full h-screen ">
       <Container className="max-w-400">
         <h2 className="text-4xl font-bold text-center animated-gradient-text font-Inter">
           Skills & Technologies

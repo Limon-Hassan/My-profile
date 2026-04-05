@@ -104,8 +104,6 @@ html {
   }
 }
 
-
-
 .animated-product-box {
   position: relative;
   border-radius: 16px;
@@ -113,7 +111,7 @@ html {
 }
 
 .animated-product-box::before {
-  content: "";
+  content: '';
   position: absolute;
   top: -50%;
   left: -50%;
@@ -122,7 +120,7 @@ html {
   background: conic-gradient(transparent, transparent, #bd44ff);
   animation: RotateBorder 6s linear infinite;
   opacity: 0;
-  transition: opacity .3s;
+  transition: opacity 0.3s;
 }
 
 .animated-product-box:hover::before {
@@ -139,8 +137,6 @@ html {
   z-index: 1;
 }
 
-
-
 @keyframes RotateBorder {
   0% {
     transform: rotate(0deg);
@@ -148,4 +144,38 @@ html {
   100% {
     transform: rotate(360deg);
   }
+}
+
+.cursor {
+  position: fixed;
+  width: 10px;
+  height: 10px;
+  background: black;
+  border-radius: 50%;
+  pointer-events: none;
+  z-index: 10000;
+  transition:
+    transform 0.3s cubic-bezier(0.75, -1.27, 0.3, 2.33),
+    opacity 0.2s cubic-bezier(0.75, -0.27, 0.3, 1.33);
+}
+
+.cursor.active {
+  transform: scale(0);
+}
+
+.cursor-follower {
+  position: fixed;
+  width: 30px;
+  height: 30px;
+  border: 1px solid black;
+  border-radius: 50%;
+  pointer-events: none;
+  z-index: 10000;
+  transition:
+    transform 0.6s cubic-bezier(0.75, -1.27, 0.3, 2.33),
+    opacity 0.2s cubic-bezier(0.75, -0.27, 0.3, 1.33);
+}
+
+.cursor-follower.active {
+  transform: scale(3);
 }

@@ -1,13 +1,13 @@
 'use client';
 
-import React, { useRef, useMemo, useState } from 'react';
+import React, { useRef, useMemo, useState, useEffect } from 'react';
 import { Canvas, useFrame, useThree } from '@react-three/fiber';
 import * as THREE from 'three';
 import { OrbitControls } from '@react-three/drei';
 
 function IconIcosahedron() {
   const groupRef = useRef<THREE.Group>(null);
-  const { camera, gl } = useThree();
+  const { gl, size } = useThree();
 
   const [hovered, setHovered] = useState(false);
   const [mouse, setMouse] = useState({ x: 0, y: 0 });
@@ -15,13 +15,27 @@ function IconIcosahedron() {
   const icons = useMemo(() => {
     const loader = new THREE.TextureLoader();
     return [
+      loader.load('/download.svg'),
+      loader.load('/download1.svg'),
       loader.load('/download2.svg'),
       loader.load('/download3.svg'),
       loader.load('/download4.svg'),
       loader.load('/download5.svg'),
       loader.load('/download6.svg'),
       loader.load('/download7.svg'),
-      loader.load('/download (1).svg'),
+      loader.load('/download8.svg'),
+      loader.load('/download9.svg'),
+      loader.load('/download10.svg'),
+      loader.load('/download11.svg'),
+      loader.load('/download12.svg'),
+      loader.load('/download13.svg'),
+      loader.load('/download14.svg'),
+      loader.load('/download15.svg'),
+      loader.load('/download16.svg'),
+      loader.load('/download17.svg'),
+      loader.load('/download18.svg'),
+      loader.load('/download19.svg'),
+      loader.load('/download20.svg'),
     ];
   }, []);
 
@@ -44,35 +58,29 @@ function IconIcosahedron() {
     return verts;
   }, []);
 
-  // Raycaster
-  const raycaster = useMemo(() => new THREE.Raycaster(), []);
-  const pointer = useRef(new THREE.Vector2());
+  useEffect(() => {
+    if (!gl.domElement) return;
 
-  const handlePointerMove = (e: React.PointerEvent) => {
-    // normalize mouse coordinates (-1 to 1)
-    pointer.current.x = (e.clientX / gl.domElement.clientWidth) * 2 - 1;
-    pointer.current.y = -(e.clientY / gl.domElement.clientHeight) * 2 + 1;
+    const onMouseMove = (e: MouseEvent) => {
+      const x = (e.clientX / size.width - 0.5) * 2;
+      const y = (e.clientY / size.height - 0.5) * 2;
+      setMouse({ x, y });
+    };
 
-    raycaster.setFromCamera(pointer.current, camera);
+    const onMouseEnter = () => setHovered(true);
+    const onMouseLeave = () => setHovered(false);
 
-    if (groupRef.current) {
-      // create a "hover mesh" around the icosahedron
-      const hoverMesh = new THREE.Mesh(
-        new THREE.IcosahedronGeometry(4, 1),
-        new THREE.MeshBasicMaterial({ visible: false }),
-      );
+    const canvas = gl.domElement;
+    canvas.addEventListener('mousemove', onMouseMove);
+    canvas.addEventListener('mouseenter', onMouseEnter);
+    canvas.addEventListener('mouseleave', onMouseLeave);
 
-      hoverMesh.position.copy(groupRef.current.position);
-      const intersects = raycaster.intersectObject(hoverMesh, true);
-      setHovered(intersects.length > 0);
-
-      if (intersects.length > 0) {
-        const x = (e.clientX / gl.domElement.clientWidth - 0.5) * 2;
-        const y = (e.clientY / gl.domElement.clientHeight - 0.5) * 2;
-        setMouse({ x, y });
-      }
-    }
-  };
+    return () => {
+      canvas.removeEventListener('mousemove', onMouseMove);
+      canvas.removeEventListener('mouseenter', onMouseEnter);
+      canvas.removeEventListener('mouseleave', onMouseLeave);
+    };
+  }, [gl.domElement, size]);
 
   useFrame(() => {
     if (!groupRef.current) return;
@@ -91,7 +99,7 @@ function IconIcosahedron() {
   });
 
   return (
-    <group ref={groupRef} onPointerMove={handlePointerMove}>
+    <group ref={groupRef}>
       {vertices.map((v, i) => (
         <sprite key={i} position={v} scale={[0.8, 0.8, 0.8]}>
           <spriteMaterial attach="material" map={icons[i % icons.length]} />
@@ -103,7 +111,7 @@ function IconIcosahedron() {
 
 const ParticlesBackground = () => {
   return (
-    <div className="absolute top-0 right-0 inset-0">
+    <div className="w-230 aspect-square max-w-300">
       <Canvas camera={{ position: [15, 15, 15], fov: 40 }}>
         <ambientLight intensity={0.6} />
         <directionalLight position={[10, 10, 10]} intensity={1} />
