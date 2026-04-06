@@ -1,4 +1,5 @@
 'use client';
+
 import { useEffect, useRef } from 'react';
 
 const CustomCursor = () => {
@@ -6,30 +7,28 @@ const CustomCursor = () => {
   const followerRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
-    const cursor = cursorRef.current;
-    const follower = followerRef.current;
-
-    let mouseX = 0,
-      mouseY = 0,
-      posX = 0,
-      posY = 0;
-
-    const smoothing = 9; 
+    let mouseX = 0;
+    let mouseY = 0;
+    let posX = 0;
+    let posY = 0;
 
     const moveMouse = (e: MouseEvent) => {
       mouseX = e.clientX;
-      mouseY = e.clientY;
+      mouseY = e.clientY + window.scrollY; 
     };
 
     document.addEventListener('mousemove', moveMouse);
 
     const animate = () => {
-      posX += (mouseX - posX) / smoothing;
-      posY += (mouseY - posY) / smoothing;
+      posX += (mouseX - posX) / 9;
+      posY += (mouseY - posY) / 9;
 
-      if (cursor && follower) {
-        cursor.style.transform = `translate(${mouseX}px, ${mouseY}px)`;
-        follower.style.transform = `translate(${posX - 12}px, ${posY - 12}px)`;
+      if (cursorRef.current && followerRef.current) {
+        cursorRef.current.style.left = mouseX + 'px';
+        cursorRef.current.style.top = mouseY + 'px';
+
+        followerRef.current.style.left = posX - 12 + 'px';
+        followerRef.current.style.top = posY - 12 + 'px';
       }
 
       requestAnimationFrame(animate);
@@ -37,24 +36,8 @@ const CustomCursor = () => {
 
     animate();
 
-    const links = document.querySelectorAll('.link');
-    links.forEach(link => {
-      link.addEventListener('mouseenter', () => {
-        cursor?.classList.add('active');
-        follower?.classList.add('active');
-      });
-      link.addEventListener('mouseleave', () => {
-        cursor?.classList.remove('active');
-        follower?.classList.remove('active');
-      });
-    });
-
     return () => {
       document.removeEventListener('mousemove', moveMouse);
-      links.forEach(link => {
-        link.removeEventListener('mouseenter', () => {});
-        link.removeEventListener('mouseleave', () => {});
-      });
     };
   }, []);
 

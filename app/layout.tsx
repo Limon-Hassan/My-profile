@@ -2,6 +2,7 @@ import type { Metadata } from 'next';
 import { Inter } from 'next/font/google';
 import './globals.css';
 import CustomCursor from '@/components/anime/CustomCursor';
+import SmoothScroll from '@/components/anime/SmoothScroll';
 
 const inter = Inter({
   subsets: ['latin'],
@@ -23,6 +24,7 @@ export default function RootLayout({
     <html lang="en">
       <body className={`${inter.variable} antialiased`}>
         <CustomCursor />
+        <SmoothScroll />
         {children}
       </body>
     </html>

@@ -52,7 +52,7 @@ const Section2 = () => {
             <div className="relative w-120 h-90 bg-black rounded-2xl overflow-hidden mb-3 border border-purple-600 p-1">
               <video
                 ref={videoRef}
-                src="/love.mp4"
+                src="/intro.mp4"
                 className="w-full h-full object-contain cursor-pointer rounded-2xl"
                 preload="metadata"
                 onClick={togglePlay}

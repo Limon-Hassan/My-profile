@@ -4,8 +4,9 @@
   --font-Inter: 'Inter', 'sans-serif';
 }
 
-html {
-  scroll-behavior: smooth;
+html,
+body {
+  height: auto;
 }
 
 .animated-gradient-text {
@@ -148,34 +149,48 @@ html {
 
 .cursor {
   position: fixed;
-  width: 10px;
-  height: 10px;
-  background: black;
+  width: 15px;
+  height: 15px;
+  background: #bd44ff;
   border-radius: 50%;
   pointer-events: none;
   z-index: 10000;
-  transition:
-    transform 0.3s cubic-bezier(0.75, -1.27, 0.3, 2.33),
-    opacity 0.2s cubic-bezier(0.75, -0.27, 0.3, 1.33);
-}
-
-.cursor.active {
-  transform: scale(0);
+  transition: opacity 0.2s cubic-bezier(0.75, -0.27, 0.3, 1.33);
 }
 
 .cursor-follower {
   position: fixed;
-  width: 30px;
-  height: 30px;
-  border: 1px solid black;
-  border-radius: 50%;
+  width: 40px;
+  height: 40px;
+  border: 1px solid #bd44ff;
+  border-radius: 9999px;
   pointer-events: none;
   z-index: 10000;
-  transition:
-    transform 0.6s cubic-bezier(0.75, -1.27, 0.3, 2.33),
-    opacity 0.2s cubic-bezier(0.75, -0.27, 0.3, 1.33);
+  transition: opacity 0.2s cubic-bezier(0.75, -0.27, 0.3, 1.33);
 }
 
-.cursor-follower.active {
-  transform: scale(3);
+
+
+.star {
+  position: absolute;
+  background: white;
+  clip-path: polygon(
+    50% 0%, 61% 35%, 98% 35%, 68% 57%, 79% 91%, 50% 70%,
+    21% 91%, 32% 57%, 2% 35%, 39% 35%
+  );
+  filter: drop-shadow(0 0 10px white);
+  transition: top 1s ease, left 1s ease; 
+}
+
+.trail {
+  position: absolute;
+  height: 2px;
+  background: linear-gradient(to right, rgba(255,255,255,1), rgba(255,255,255,0));
+  opacity: 1;
+  animation: trailFade 3s forwards;
+}
+
+@keyframes trailFade {
+  0% { opacity: 1; transform: scaleX(1); }
+  100% { opacity: 0; transform: scaleX(0); }
 }
