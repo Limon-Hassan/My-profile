@@ -1,14 +1,17 @@
-import React from 'react';
+import React, { forwardRef } from 'react';
 import { PiBuildingOffice } from 'react-icons/pi';
 import { MdEventNote, MdOutlineUpdate } from 'react-icons/md';
 import { FaLocationDot } from 'react-icons/fa6';
 import { FaArrowRight } from 'react-icons/fa';
 import { LuSquareArrowOutUpRight } from 'react-icons/lu';
 
-const Pxe = ({ item }: { item: any }) => {
+const Pxe = forwardRef(({ item }: { item: any }, ref: any) => {
   return (
     <div className="flex flex-col items-center gap-10 mt-14 hover:scale-105 transition-transform duration-300">
-      <div className="bg-purple-400/20 w-6xl rounded-lg p-10 flex justify-between">
+      <div
+        ref={ref}
+        className="bg-purple-400/20 w-6xl rounded-lg p-10 flex justify-between"
+      >
         <div>
           <div className="flex items-center gap-3 mb-4">
             <span className="w-15 h-15 rounded-md flex items-center justify-center border border-gray-500 bg-gray-400/30">
@@ -69,7 +72,10 @@ const Pxe = ({ item }: { item: any }) => {
           </span>
           <div className="flex items-center justify-center gap-5 flex-wrap mb-10 mt-5">
             {item.technologies.map((tech: any, index: number) => (
-              <button key={index} className="bg-gray-300/20 w-27.5 h-7.5 flex items-center justify-center gap-1 rounded-md border border-blue-800">
+              <button
+                key={index}
+                className="bg-gray-300/20 w-27.5 h-7.5 flex items-center justify-center gap-1 rounded-md border border-blue-800"
+              >
                 <img
                   className="w-5 h-5 object-cover bg-center"
                   src={tech.icon}
@@ -78,12 +84,11 @@ const Pxe = ({ item }: { item: any }) => {
                 {tech.name}
               </button>
             ))}
-           
           </div>
         </div>
       </div>
     </div>
   );
-};
+});
 
 export default Pxe;

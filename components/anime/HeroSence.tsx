@@ -50,7 +50,7 @@ export default function HeroScene() {
         camera={{ position: [0, 0, 6] }}
         gl={{ toneMapping: THREE.NoToneMapping }}
       >
-        <OrbitRing radius={2} speed={0.002} size={0.05} color="#9b5de5" />{' '}
+        <OrbitRing radius={2} speed={0.002} size={0.05} color="#9b5de5" />
         <OrbitRing
           radius={3}
           speed={-0.0015}

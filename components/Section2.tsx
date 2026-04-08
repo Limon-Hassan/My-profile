@@ -1,5 +1,5 @@
 'use client';
-import React from 'react';
+import React, { useEffect } from 'react';
 import Container from './container/Container';
 import { MdOutlineMailOutline } from 'react-icons/md';
 import {
@@ -9,8 +9,18 @@ import {
 } from 'react-icons/io5';
 import { LiaCertificateSolid } from 'react-icons/lia';
 import { useRef, useState } from 'react';
+import gsap from 'gsap';
+import { ScrollTrigger } from 'gsap/ScrollTrigger';
+
+gsap.registerPlugin(ScrollTrigger);
 
 const Section2 = () => {
+  let headingRef = useRef<HTMLHeadingElement>(null);
+  let cardRef = useRef<HTMLDivElement>(null);
+  let cardRef2 = useRef<HTMLDivElement>(null);
+  let cardRef3 = useRef<HTMLDivElement>(null);
+  let sectionRef = useRef(null);
+
   const videoRef = useRef<HTMLVideoElement>(null);
 
   const [isPlaying, setIsPlaying] = useState(false);
@@ -35,13 +45,62 @@ const Section2 = () => {
     setIsEnded(true);
   };
 
+  useEffect(() => {
+    const ctx = gsap.context(() => {
+      let tl = gsap.timeline({
+        scrollTrigger: {
+          trigger: sectionRef.current,
+          start: 'top 80%',
+          toggleActions: 'play none none none',
+        },
+      });
+
+      tl.fromTo(
+        headingRef.current,
+        {
+          y: 80,
+          opacity: 0,
+        },
+        {
+          y: 0,
+          opacity: 1,
+          duration: 0.8,
+          ease: 'power3.out',
+        },
+      );
+
+      tl.fromTo(
+        [cardRef.current, cardRef2.current, cardRef3.current],
+        {
+          y: -80,
+          opacity: 0,
+          scale: 1.1,
+        },
+        {
+          y: 0,
+          opacity: 1,
+          scale: 1,
+          duration: 0.8,
+          ease: 'power3.out',
+          stagger: 0.25, 
+        },
+        '-=0.3', 
+      );
+    });
+
+    return () => ctx.revert();
+  }, []);
+
   return (
-    <section className=" py-14 bg-linear-to-b from-[#09071e] to-[#282857]">
+    <section
+      ref={sectionRef}
+      className=" py-14 bg-linear-to-b from-[#09071e] to-[#282857]"
+    >
       <Container className="max-w-400">
-        <div className="mb-20">
-          <h1 className="text-4xl font-bold text-center animated-gradient-text font-Inter">
+        <div ref={headingRef} className="mb-20">
+          <h2 className="text-4xl font-bold text-center animated-gradient-text font-Inter">
             About Me
-          </h1>
+          </h2>
           <p className="text-center text-[18px] font-medium max-w-2xl font-Inter mt-4 text-gray-300 mx-auto">
             Get to know more about my background, experience, and what drives me
             as a developer
@@ -122,7 +181,7 @@ const Section2 = () => {
             </div>
           </div>
           <div className="flex flex-col items-center gap-5 ">
-            <div className="relative group">
+            <div ref={cardRef} className="relative group">
               <div className="absolute inset-0 bg-linear-to-r from-purple-500 to-cyan-500 rounded-2xl blur-xl opacity-20 group-hover:opacity-30 transition-opacity duration-300"></div>
               <div className="w-lg h-auto p-5 border border-gray-500/30 rounded-2xl relative bg-gray-800/60 backdrop-blur-lg sm:p-5 md:p-6 hover:border-gray-500/50 transition-all duration-300 shadow-2xl shadow-black/30 group-hover:scale-105 hover:shadow-purple-500/10">
                 <h4 className="text-[20px] font-Inter font-medium flex items-center gap-2.5 text-white mb-3">
@@ -143,7 +202,7 @@ const Section2 = () => {
                 </span>
               </div>
             </div>
-            <div className="relative group">
+            <div ref={cardRef2} className="relative group">
               <div className="absolute inset-0 bg-linear-to-r from-green-500 to-emerald-500 rounded-2xl blur-xl opacity-20 group-hover:opacity-30 transition-opacity duration-300"></div>
               <div className="w-lg h-auto p-5 border border-gray-500/30 rounded-2xl relative bg-gray-800/60 backdrop-blur-lg sm:p-5 md:p-6 hover:border-gray-500/50 transition-all duration-300 shadow-2xl shadow-black/30 group-hover:scale-105 hover:shadow-emerald-500/10">
                 <h4 className="text-[20px] font-Inter font-medium flex items-center gap-2.5 text-white mb-3">
@@ -163,7 +222,7 @@ const Section2 = () => {
                 </button>
               </div>
             </div>
-            <div className="relative group">
+            <div ref={cardRef3} className="relative group">
               <div className="absolute inset-0 bg-linear-to-r from-orange-500 to-red-500 rounded-2xl blur-xl opacity-20 group-hover:opacity-30 transition-opacity duration-300"></div>
               <div className="w-lg h-auto p-5 border border-gray-500/30 rounded-2xl relative bg-gray-800/60 backdrop-blur-lg sm:p-5 md:p-6 hover:border-gray-500/50 transition-all duration-300 shadow-2xl shadow-black/30 group-hover:scale-105 hover:shadow-red-500/10">
                 <h4 className="text-[20px] font-Inter font-medium flex items-center gap-2.5 text-white mb-3">

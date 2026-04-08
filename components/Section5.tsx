@@ -1,8 +1,16 @@
-import React from 'react';
+'use client';
+import React, { useEffect, useRef } from 'react';
 import Container from './container/Container';
 import Pxe from './Profesional/Pxe';
+import { gsap } from 'gsap';
+import { ScrollTrigger } from 'gsap/ScrollTrigger';
+
+gsap.registerPlugin(ScrollTrigger);
 
 const Section5 = () => {
+  let sectionRef = useRef(null);
+  let cardsRef = useRef([]);
+  let headingRef = useRef(null);
   let data = [
     {
       id: 1,
@@ -51,12 +59,62 @@ const Section5 = () => {
       ],
     },
   ];
+
+  useEffect(() => {
+    const ctx = gsap.context(() => {
+      gsap.fromTo(
+        headingRef.current,
+        {
+          y: 80,
+          opacity: 0,
+        },
+        {
+          y: 0,
+          opacity: 1,
+          duration: 0.8,
+          ease: 'power3.out',
+          scrollTrigger: {
+            trigger: sectionRef.current,
+            start: 'top 80%',
+            toggleActions: 'play none none none',
+          },
+        },
+      );
+
+      gsap.fromTo(
+        cardsRef.current,
+        {
+          opacity: 0,
+          scaleX: 0.2,
+          transformOrigin: 'left center',
+          filter: 'blur(5px)',
+        },
+        {
+          opacity: 1,
+          scaleX: 1,
+          filter: 'blur(0px)',
+          duration: 1.2,
+          ease: 'power3.out',
+          stagger: 0.3,
+          scrollTrigger: {
+            trigger: sectionRef.current,
+            start: 'top 75%',
+          },
+        },
+      );
+    });
+
+    return () => ctx.revert();
+  }, []);
   return (
     <>
-      <section className="mb-20">
+      <section ref={sectionRef} className="mb-20">
         <Container className="max-w-400">
           <div>
-            <h2 className="text-4xl font-bold text-center animated-gradient-text font-Inter">
+            <h2
+              ref={headingRef}
+              className="text-4xl font-bold text-center animated-gradient-text font-Inter"
+            >
               Professional Experience
             </h2>
             <span className="relative flex size-4">
@@ -64,7 +122,11 @@ const Section5 = () => {
               <span className="relative inline-flex size-4 rounded-full bg-sky-500"></span>
             </span>
             {data.map((item, index) => (
-              <Pxe key={index} item={item} />
+              <Pxe
+                ref={el => (cardsRef.current[index] = el)}
+                key={index}
+                item={item}
+              />
             ))}
           </div>
         </Container>

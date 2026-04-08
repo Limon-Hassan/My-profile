@@ -80,7 +80,6 @@ function SnowParticles() {
 
   return (
     <>
-      {/* Center Dense */}
       <points ref={centerRef}>
         <bufferGeometry>
           <bufferAttribute
@@ -101,7 +100,6 @@ function SnowParticles() {
         />
       </points>
 
-      {/* Light Spread */}
       <points ref={spreadRef}>
         <bufferGeometry>
           <bufferAttribute
