@@ -22,7 +22,6 @@ interface Props {
 }
 
 const Navber = ({ sectionRefs }: Props) => {
-  let [isOpen, setIsOpen] = useState(false);
   const linksRef = useRef<HTMLDivElement[]>([]);
   const btnRef = useRef(null);
 
@@ -307,15 +306,14 @@ const Navber = ({ sectionRefs }: Props) => {
               </div>
               <h3 className=" font-bold text-white font-Inter">M.H Limon</h3>
             </div>
-
-            <div
-              onClick={() => {
-                setIsOpen(!isOpen);
-              }}
-              className="border border-purple-500 p-2 rounded-md"
+            <button
+              ref={btnRef}
+              onClick={handleResumeClick}
+              className="flex items-center gap-1 text-white px-3 py-2 cursor-pointer font-Inter font-medium rounded-md bg-linear-to-r from-purple-500 via-pink-500 to-red-500 hover:from-purple-600 hover:via-pink-600 hover:to-red-600 transition-colors duration-300 hover:shadow-[0px_10px_15px_0px_rgba(255,69,83,0.6)]"
             >
-              <RxHamburgerMenu size={28} />
-            </div>
+              <LuDownload size={18} />
+              <span className="ml-2">Resume</span>
+            </button>
           </div>
         </Container>
       </nav>

@@ -10,20 +10,16 @@ import { Wireframe } from 'three/examples/jsm/lines/Wireframe.js';
 import MobileChecker from '../helper/MobileChecker';
 
 function WireframeIcosahedron({ isMobile }: any) {
-  const meshRef = useRef<Wireframe>();
+  const meshRef = useRef<Wireframe>(null);
 
   const wireframe = useMemo(() => {
- 
-    const geo = new THREE.IcosahedronGeometry(
-      isMobile ? 3 : 4, 
-      1, 
-    );
+    const geo = new THREE.IcosahedronGeometry(isMobile ? 3 : 4, 1);
 
     const geometry = new WireframeGeometry2(geo);
 
     const matLine = new LineMaterial({
       color: 0x8000ff,
-      linewidth: 3, 
+      linewidth: 3,
       dashed: false,
     });
 
@@ -54,8 +50,8 @@ const HeroSnce2 = () => {
     <div className="absolute h-screen inset-0 z-0 small:hidden tab:hidden lap:block com:block">
       <Canvas
         camera={{
-          position: isMobile ? [16, 0, 16] : [20, 0, 20], 
-          fov: 40, 
+          position: isMobile ? [16, 0, 16] : [20, 0, 20],
+          fov: 40,
         }}
       >
         <ambientLight intensity={0.6} />

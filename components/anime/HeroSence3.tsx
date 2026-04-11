@@ -87,14 +87,12 @@ function SnowParticles({ isMobile }: any) {
         <bufferGeometry>
           <bufferAttribute
             attach="attributes-position"
-            count={centerParticles.length / 3}
-            array={centerParticles}
-            itemSize={3}
+            args={[centerParticles, 3]}
           />
         </bufferGeometry>
         <pointsMaterial
           color="white"
-          size={isMobile ? 0.02 : 0.03} 
+          size={isMobile ? 0.02 : 0.03}
           transparent
           opacity={0.9}
           depthWrite={false}
@@ -107,9 +105,7 @@ function SnowParticles({ isMobile }: any) {
         <bufferGeometry>
           <bufferAttribute
             attach="attributes-position"
-            count={spreadParticles.length / 3}
-            array={spreadParticles}
-            itemSize={3}
+            args={[spreadParticles, 3]}
           />
         </bufferGeometry>
         <pointsMaterial
@@ -127,9 +123,7 @@ function SnowParticles({ isMobile }: any) {
         <bufferGeometry>
           <bufferAttribute
             attach="attributes-position"
-            count={bgParticles.length / 3}
-            array={bgParticles}
-            itemSize={3}
+            args={[bgParticles, 3]}
           />
         </bufferGeometry>
 
@@ -154,7 +148,7 @@ export default function HeroSence3() {
     <div className="absolute h-screen inset-0 z-0 ">
       <Canvas
         camera={{
-          position: [0, 0, isMobile ? 14 : 12], 
+          position: [0, 0, isMobile ? 14 : 12],
           fov: 60,
         }}
       >
