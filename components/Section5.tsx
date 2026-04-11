@@ -9,7 +9,7 @@ gsap.registerPlugin(ScrollTrigger);
 
 const Section5 = () => {
   let sectionRef = useRef(null);
-  let cardsRef = useRef([]);
+  let cardsRef = useRef<(HTMLElement | null)[]>([]);
   let headingRef = useRef(null);
   let data = [
     {
@@ -82,7 +82,7 @@ const Section5 = () => {
       );
 
       gsap.fromTo(
-        cardsRef.current,
+        cardsRef.current.filter(Boolean),
         {
           opacity: 0,
           scaleX: 0.2,
@@ -109,11 +109,11 @@ const Section5 = () => {
   return (
     <>
       <section ref={sectionRef} className="mb-20">
-        <Container className="max-w-400">
+        <Container className="com:max-w-400 lap:max-w-400 com:mx-auto lap:mx-auto small:px-3 small:mx-0 tab:px-3 tab:mx-0 com:px-0 lap:px-0">
           <div>
             <h2
               ref={headingRef}
-              className="text-4xl font-bold text-center animated-gradient-text font-Inter"
+              className="small:text-3xl tab:text-4xl lap:text-4xl com:text-4xl font-bold text-center animated-gradient-text font-Inter"
             >
               Professional Experience
             </h2>
@@ -123,7 +123,9 @@ const Section5 = () => {
             </span>
             {data.map((item, index) => (
               <Pxe
-                ref={el => (cardsRef.current[index] = el)}
+                ref={(el: HTMLElement | null) => {
+                  if (el) cardsRef.current[index] = el;
+                }}
                 key={index}
                 item={item}
               />

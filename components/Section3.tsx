@@ -1,6 +1,6 @@
 'use client';
 
-import { useEffect, useRef } from 'react';
+import { forwardRef, useEffect, useRef } from 'react';
 import Container from './container/Container';
 import Skills_Cards from './skills/Skills_Cards';
 import gsap from 'gsap';
@@ -8,9 +8,9 @@ import { ScrollTrigger } from 'gsap/ScrollTrigger';
 
 gsap.registerPlugin(ScrollTrigger);
 
-const Section3 = () => {
+const Section3 = forwardRef<HTMLDivElement>((props, ref) => {
   let sectionRef = useRef(null);
-  let cardsRef = useRef([]);
+  let cardsRef = useRef<(HTMLDivElement | null)[]>([]);
   let headingRef = useRef(null);
   let skillData = [
     {
@@ -135,32 +135,34 @@ const Section3 = () => {
   }, []);
 
   return (
-    <section ref={sectionRef} className="pt-15 w-full h-screen ">
-      <Container className="max-w-400">
-        <div ref={headingRef}>
-          <h2 className="text-4xl font-bold text-center animated-gradient-text font-Inter">
-            Skills & Technologies
-          </h2>
-          <p className="text-center text-[18px] font-medium max-w-3xl font-Inter mt-4 text-gray-300 mx-auto">
-            A comprehensive overview of my technical expertise across different
-            domains of software development
-          </p>
-        </div>
-        <div className="flex flex-wrap items-center justify-center gap-3 mt-20 w-full">
-          {skillData.map((skill, index) => (
-            <div
-              key={index}
-              ref={el => {
-                cardsRef.current[index] = el;
-              }}
-            >
-              <Skills_Cards skill={skill} />
-            </div>
-          ))}
-        </div>
-      </Container>
+    <section ref={ref}>
+      <div ref={sectionRef} className="pt-15 w-full mb-20">
+        <Container className="com:max-w-400 lap:max-w-400 com:mx-auto lap:mx-auto small:px-3 small:mx-0 tab:px-3 tab:mx-0 com:px-0 lap:px-0">
+          <div ref={headingRef}>
+            <h2 className="text-4xl font-bold text-center animated-gradient-text font-Inter">
+              Skills & Technologies
+            </h2>
+            <p className="text-center text-[18px] font-medium small:w-auto tab:w-auto lap:max-w-3xl com:max-w-3xl font-Inter mt-4 text-gray-300 mx-auto">
+              A comprehensive overview of my technical expertise across
+              different domains of software development
+            </p>
+          </div>
+          <div className="flex flex-wrap items-center justify-center gap-3 mt-20 w-full">
+            {skillData.map((skill, index) => (
+              <div
+                key={index}
+                ref={el => {
+                  cardsRef.current[index] = el;
+                }}
+              >
+                <Skills_Cards skill={skill} />
+              </div>
+            ))}
+          </div>
+        </Container>
+      </div>
     </section>
   );
-};
+});
 
 export default Section3;

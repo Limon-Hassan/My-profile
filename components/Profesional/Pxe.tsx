@@ -10,7 +10,7 @@ const Pxe = forwardRef(({ item }: { item: any }, ref: any) => {
     <div className="flex flex-col items-center gap-10 mt-14 hover:scale-105 transition-transform duration-300">
       <div
         ref={ref}
-        className="bg-purple-400/20 w-6xl rounded-lg p-10 flex justify-between"
+        className="bg-purple-400/20 small:w-auto tab:w-auto lap:w-6xl com:w-6xl rounded-lg small:p-5 tab:p-5 lap:p-10 com:p-10 small:flex-none tab:flex-none lap:flex com:flex small:justify-normal tab:justify-normal lap:justify-between com:justify-between"
       >
         <div>
           <div className="flex items-center gap-3 mb-4">
@@ -51,8 +51,8 @@ const Pxe = forwardRef(({ item }: { item: any }, ref: any) => {
             </span>
           </p>
         </div>
-        <div>
-          <h4 className="text-gray-400 font-Inter font-medium w-165">
+        <div className="small:mt-5 tab:mt-5 lap:mt-0 com:mt-0">
+          <h4 className="text-gray-400 font-Inter font-medium small:w-auto tab:w-auto lap:w-165 com:w-165">
             {item.description}
           </h4>
           <span className="flex items-center gap-3 text-[20px] mt-3">

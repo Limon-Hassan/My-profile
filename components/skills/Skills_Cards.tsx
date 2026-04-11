@@ -2,8 +2,8 @@ import React from 'react';
 
 const Skills_Cards = ({ skill }: { skill: any }) => {
   return (
-    <div className="animated-border-box w-115 h-68.75">
-      <div className="content bg-linear-to-r from-[#09071e] to-[#282857] p-5">
+    <div className="animated-border-box small:w-90 tab:w-100 lap:w-115 com:w-115 h-68.75 overflow-hidden">
+      <div className="content bg-linear-to-r from-[#09071e] to-[#282857] p-5 small:overflow-scroll tab:overflow-scroll lap:overflow-hidden com:overflow-hidden">
         <span className="flex flex-col gap-3.75">
           <div className="flex items-center gap-3">
             <div className="w-10 h-10">

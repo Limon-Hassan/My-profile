@@ -1,6 +1,6 @@
 'use client';
 
-import React, { useEffect, useRef } from 'react';
+import React, { forwardRef, useEffect, useRef } from 'react';
 import Container from './container/Container';
 import ProjectsCard from './projectsCards/ProjectsCard';
 import Button from './Button/Button';
@@ -9,9 +9,9 @@ import { ScrollTrigger } from 'gsap/ScrollTrigger';
 
 gsap.registerPlugin(ScrollTrigger);
 
-const Section4 = () => {
+const Section4 = forwardRef<HTMLElement>((props, ref) => {
   let sectionRef = useRef(null);
-  let cardsRef = useRef([]);
+  let cardsRef = useRef<(HTMLElement | null)[]>([]);
   let headingRef = useRef(null);
   let projects = [
     {
@@ -20,7 +20,7 @@ const Section4 = () => {
       title: 'Evato E-Commerce',
       like: 22,
       github: 'https://github.com/Limon-Hassan/Ekomart-E-commarce-Full',
-      Link: 'https://evato-e-commerce-limon.onrender.com',
+      Link: 'https://ekomart-e-commarce.mahammudhassanlimon.workers.dev',
     },
     {
       id: 2,
@@ -116,33 +116,37 @@ const Section4 = () => {
   }, []);
   return (
     <>
-      <section ref={sectionRef} className="mb-20">
-        <Container className="max-w-400">
-          <div ref={headingRef} className="mb-20">
-            <h2 className="text-4xl font-bold text-center animated-gradient-text font-Inter">
-              My Projects
-            </h2>
-            <p className="text-center text-[18px] font-medium max-w-2xl font-Inter mt-4 text-gray-300 mx-auto">
-              Explore More About My Real-Time Deployed Projects
-            </p>
-          </div>
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-            {projects.map((pro, index) => (
-              <ProjectsCard
-                data={pro}
-                key={index}
-                ref={el => (cardsRef.current[index] = el)}
-              />
-            ))}
-          </div>
+      <section ref={ref}>
+        <div ref={sectionRef} className="mb-20">
+          <Container className="com:max-w-400 lap:max-w-400 com:mx-auto lap:mx-auto small:px-3 small:mx-0 tab:px-3 tab:mx-0 com:px-0 lap:px-0">
+            <div ref={headingRef} className="mb-20">
+              <h2 className="text-4xl font-bold text-center animated-gradient-text font-Inter">
+                My Projects
+              </h2>
+              <p className="text-center text-[18px] font-medium small:w-auto tab:w-auto lap:max-w-2xl com:max-w-2xl font-Inter mt-4 text-gray-300 mx-auto">
+                Explore More About My Real-Time Deployed Projects
+              </p>
+            </div>
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+              {projects.map((pro, index) => (
+                <ProjectsCard
+                  data={pro}
+                  key={index}
+                  ref={el => {
+                    cardsRef.current[index] = el as HTMLElement | null;
+                  }}
+                />
+              ))}
+            </div>
 
-          <div className="mx-auto flex justify-center items-center mt-10">
-            <Button custum={'See More Projects'} />
-          </div>
-        </Container>
+            <div className="mx-auto flex justify-center items-center mt-10">
+              <Button custum={'See More Projects'} />
+            </div>
+          </Container>
+        </div>
       </section>
     </>
   );
-};
+});
 
 export default Section4;

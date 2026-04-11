@@ -1,10 +1,10 @@
 import React from 'react';
 import styled from 'styled-components';
 
-const SendButton = () => {
+const SendButton = ({ className }: { className: string }) => {
   return (
-    <StyledWrapper>
-      <button>
+    <StyledWrapper width={className}>
+      <button className={className}>
         <div className="svg-wrapper-1">
           <div className="svg-wrapper">
             <svg
@@ -27,12 +27,11 @@ const SendButton = () => {
   );
 };
 
-const StyledWrapper = styled.div`
+const StyledWrapper = styled.div<{ width?: string }>`
   button {
     font-family: inherit;
     font-size: 22px;
     color: white;
-    width: 500px;
     height: 60px;
     display: flex;
     align-items: center;

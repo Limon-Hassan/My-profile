@@ -4,13 +4,14 @@ import { Canvas, useFrame } from '@react-three/fiber';
 import { Points, PointMaterial } from '@react-three/drei';
 import * as THREE from 'three';
 import { useRef, useMemo } from 'react';
+import MobileChecker from '../helper/MobileChecker';
 
 function OrbitRing({ radius, speed, size, color }: any) {
   const ref = useRef<any>();
   const materialRef = useRef<any>();
 
   const positions = useMemo(() => {
-    const count = 300; 
+    const count = 300;
     const arr = new Float32Array(count * 3);
 
     for (let i = 0; i < count; i++) {
@@ -25,9 +26,11 @@ function OrbitRing({ radius, speed, size, color }: any) {
 
   useFrame(state => {
     if (!ref.current || !materialRef.current) return;
+
     ref.current.rotation.z += speed;
+
     const t = state.clock.getElapsedTime();
-    materialRef.current.opacity = 0.5 + Math.sin(t * 3) * 0.3; 
+    materialRef.current.opacity = 0.5 + Math.sin(t * 3) * 0.3;
   });
 
   return (
@@ -44,17 +47,25 @@ function OrbitRing({ radius, speed, size, color }: any) {
 }
 
 export default function HeroScene() {
+  const isMobile = MobileChecker(); 
+
   return (
     <div className="absolute h-screen inset-0 z-0">
       <Canvas
-        camera={{ position: [0, 0, 6] }}
+        camera={{ position: [0, 0, isMobile ? 8 : 6] }} 
         gl={{ toneMapping: THREE.NoToneMapping }}
       >
-        <OrbitRing radius={2} speed={0.002} size={0.05} color="#9b5de5" />
         <OrbitRing
-          radius={3}
+          radius={isMobile ? 1.4 : 2} 
+          speed={0.002}
+          size={isMobile ? 0.03 : 0.05} 
+          color="#9b5de5"
+        />
+
+        <OrbitRing
+          radius={isMobile ? 2.2 : 3}
           speed={-0.0015}
-          size={0.04}
+          size={isMobile ? 0.02 : 0.04}
           color="#9b5de5"
         />
       </Canvas>

@@ -1,12 +1,12 @@
 'use client';
-import React, { useEffect, useRef, useState } from 'react';
+import React, { forwardRef, useEffect, useRef, useState } from 'react';
 import Container from './container/Container';
 import { FaArrowDown } from 'react-icons/fa';
 import LinkButton from './LinkButtons/LinkButton';
 import ParticlesBackground from './anime/ParticlesBackground';
 import gsap from 'gsap';
 
-const Section = () => {
+const Section = forwardRef<HTMLElement>((props, ref) => {
   let headRef = useRef<HTMLDivElement>(null);
   let btnRef = useRef<HTMLDivElement>(null);
   let peraRef = useRef<HTMLDivElement>(null);
@@ -122,26 +122,29 @@ const Section = () => {
   }, []);
 
   return (
-    <section className="my-25 relative">
-      <Container className="max-w-400">
-        <div className="flex items-center justify-between">
+    <section
+      ref={ref}
+      className="com:my-25 lap:my-25 tab:my-20 small:my-12 relative"
+    >
+      <Container className="com:max-w-400 lap:max-w-400 com:mx-auto lap:mx-auto tab:max-w-0 small:max-w-0 small:px-3 small:mx-0 tab:px-3 tab:mx-0 com:px-0 lap:px-0">
+        <div className="flex small:flex-col tab:flex-col lap:flex-row com:flex-row small:items-start tab:items-start lap:items-center com:items-center small:justify-normal tab:justify-normal lap:justify-between com:justify-between">
           <div>
             <h1
               ref={headRef}
-              className="font-Inter text-5xl font-extrabold flex flex-col items-start gap-3"
+              className="font-Inter small:text-[28px] tab:text-[30px] lap:text-5xl com:text-5xl font-extrabold flex flex-col items-start gap-3"
             >
               Hi, I'm
-              <span className="animated-gradient-text text-5xl mb-1.5">
+              <span className="animated-gradient-text small:text-[28px] tab:text-[30px] lap:text-5xl com:text-5xl mb-1.5">
                 Mahammud Hassan Limon
               </span>
-              <span className="text-purple-400 text-5xl font-bold">
+              <span className="text-purple-400 small:text-[28px] tab:text-[30px] lap:text-5xl com:text-5xl font-bold">
                 {text}
                 <span className="animate-pulse">|</span>
               </span>
             </h1>
             <div
               ref={btnRef}
-              className="flex items-center justify-center gap-5 flex-wrap w-125  my-10"
+              className="grid small:grid-cols-3 tab:grid-cols-3 lap:grid-cols-4 com:grid-cols-4 items-center justify-center gap-5 flex-wrap small:w-95 tab:w-125 lap:w-125 com:w-125  my-10"
             >
               <button className="bg-gray-300/20 w-27.5 h-7.5 flex items-center justify-center gap-1 rounded-md border border-blue-800">
                 <img
@@ -211,7 +214,7 @@ const Section = () => {
             </div>
             <div
               ref={peraRef}
-              className="w-120 font-Inter text-[16px] font-normal text-gray-300"
+              className="small:w-auto tab:w-auto lap:w-120 com:w-120 font-Inter text-[16px] font-normal text-gray-300"
             >
               Full Stack Developer with 3 years of hand on development and fast
               coding experience and 3 months of professional company experience.
@@ -225,7 +228,7 @@ const Section = () => {
               <LinkButton />
             </div>
           </div>
-          <div className="absolute -right-20 top-1/2 transform -translate-y-1/2">
+          <div className="absolute -right-20 top-1/2 transform -translate-y-1/2 small:hidden tab:hidden com:block lap:block ">
             <div ref={CircleRef}>
               <ParticlesBackground />
             </div>
@@ -237,6 +240,6 @@ const Section = () => {
       </span>
     </section>
   );
-};
+});
 
 export default Section;

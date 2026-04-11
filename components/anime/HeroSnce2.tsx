@@ -1,4 +1,3 @@
-
 'use client';
 
 import React, { useRef, useMemo } from 'react';
@@ -8,32 +7,36 @@ import { OrbitControls } from '@react-three/drei';
 import { WireframeGeometry2 } from 'three/examples/jsm/lines/WireframeGeometry2.js';
 import { LineMaterial } from 'three/examples/jsm/lines/LineMaterial.js';
 import { Wireframe } from 'three/examples/jsm/lines/Wireframe.js';
+import MobileChecker from '../helper/MobileChecker';
 
-function WireframeIcosahedron() {
+function WireframeIcosahedron({ isMobile }: any) {
   const meshRef = useRef<Wireframe>();
 
   const wireframe = useMemo(() => {
-    const geo = new THREE.IcosahedronGeometry(4, 1);
+ 
+    const geo = new THREE.IcosahedronGeometry(
+      isMobile ? 3 : 4, 
+      1, 
+    );
 
     const geometry = new WireframeGeometry2(geo);
 
     const matLine = new LineMaterial({
       color: 0x8000ff,
-      linewidth: 3,
+      linewidth: 3, 
       dashed: false,
     });
 
     const wf = new Wireframe(geometry, matLine);
     wf.computeLineDistances();
     return wf;
-  }, []);
+  }, [isMobile]);
 
   useFrame(state => {
     if (!meshRef.current) return;
 
     meshRef.current.rotation.y += 0.002;
     meshRef.current.rotation.x += 0.001;
-
 
     const t = state.clock.getElapsedTime();
     const scale = 1 + Math.sin(t * 1.2) * 0.1;
@@ -44,15 +47,23 @@ function WireframeIcosahedron() {
   return <primitive ref={meshRef} object={wireframe} />;
 }
 
-
 const HeroSnce2 = () => {
+  const isMobile = MobileChecker();
+
   return (
-    <div className="absolute h-screen inset-0 z-0">
-      <Canvas camera={{ position: [20, 0, 20], fov: 40 }}>
+    <div className="absolute h-screen inset-0 z-0 small:hidden tab:hidden lap:block com:block">
+      <Canvas
+        camera={{
+          position: isMobile ? [16, 0, 16] : [20, 0, 20], 
+          fov: 40, 
+        }}
+      >
         <ambientLight intensity={0.6} />
         <directionalLight position={[10, 10, 10]} intensity={1} />
+
         <OrbitControls enableZoom={false} />
-        <WireframeIcosahedron />
+
+        <WireframeIcosahedron isMobile={isMobile} />
       </Canvas>
     </div>
   );

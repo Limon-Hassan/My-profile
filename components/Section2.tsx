@@ -1,5 +1,5 @@
 'use client';
-import React, { useEffect } from 'react';
+import React, { forwardRef, useEffect } from 'react';
 import Container from './container/Container';
 import { MdOutlineMailOutline } from 'react-icons/md';
 import {
@@ -14,7 +14,7 @@ import { ScrollTrigger } from 'gsap/ScrollTrigger';
 
 gsap.registerPlugin(ScrollTrigger);
 
-const Section2 = () => {
+const Section2 = forwardRef<HTMLElement>((props, ref) => {
   let headingRef = useRef<HTMLHeadingElement>(null);
   let cardRef = useRef<HTMLDivElement>(null);
   let cardRef2 = useRef<HTMLDivElement>(null);
@@ -82,9 +82,9 @@ const Section2 = () => {
           scale: 1,
           duration: 0.8,
           ease: 'power3.out',
-          stagger: 0.25, 
+          stagger: 0.25,
         },
-        '-=0.3', 
+        '-=0.3',
       );
     });
 
@@ -92,163 +92,165 @@ const Section2 = () => {
   }, []);
 
   return (
-    <section
-      ref={sectionRef}
-      className=" py-14 bg-linear-to-b from-[#09071e] to-[#282857]"
-    >
-      <Container className="max-w-400">
-        <div ref={headingRef} className="mb-20">
-          <h2 className="text-4xl font-bold text-center animated-gradient-text font-Inter">
-            About Me
-          </h2>
-          <p className="text-center text-[18px] font-medium max-w-2xl font-Inter mt-4 text-gray-300 mx-auto">
-            Get to know more about my background, experience, and what drives me
-            as a developer
-          </p>
-        </div>
-        <div className="flex items-center gap-10 justify-center">
-          <div>
-            <div className="relative w-120 h-90 bg-black rounded-2xl overflow-hidden mb-3 border border-purple-600 p-1">
-              <video
-                ref={videoRef}
-                src="/intro.mp4"
-                className="w-full h-full object-contain cursor-pointer rounded-2xl"
-                preload="metadata"
-                onClick={togglePlay}
-                onEnded={handleEnded}
-              />
-
-              {!isPlaying && (
-                <button
-                  onClick={togglePlay}
-                  className="absolute inset-0 flex items-center justify-center"
-                >
-                  <div className="bg-white hover:bg-gray-300 transition duration-300 rounded-full flex items-center justify-center w-15 h-15">
-                    {isEnded ? (
-                      <span className="w-8 h-8 cursor-pointer">
-                        <img
-                          className="w-full h-full object-contain"
-                          src="/Replay.png"
-                          alt="Replay"
-                        />
-                      </span>
-                    ) : (
-                      <span className="w-8 h-8 cursor-pointer">
-                        <img
-                          className="w-full h-full object-contain"
-                          src="/Play.png"
-                          alt="Play"
-                        />
-                      </span>
-                    )}
-                  </div>
-                </button>
-              )}
-            </div>
-
-            <h3 className="text-2xl font-Inter font-bold text-cyan-400 mb-4">
-              What I Bring
-            </h3>
-            <div className=" grid grid-cols-2 gap-3 items-center">
-              <span className="flex items-center gap-3">
-                <span className="relative flex size-3">
-                  <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-purple-400 opacity-75"></span>
-                  <span className="relative inline-flex size-3 rounded-full bg-purple-500"></span>
-                </span>
-                <span className="ml-2">Performance Optimization</span>
-              </span>
-              <span className="flex items-center gap-3">
-                <span className="relative flex size-3">
-                  <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-sky-400 opacity-75"></span>
-                  <span className="relative inline-flex size-3 rounded-full bg-sky-500"></span>
-                </span>
-                <span className="ml-2">Scalable Architecture</span>
-              </span>
-              <span className="flex items-center gap-3">
-                <span className="relative flex size-3">
-                  <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-purple-400 opacity-75"></span>
-                  <span className="relative inline-flex size-3 rounded-full bg-purple-500"></span>
-                </span>
-                <span className="ml-2">Modern UI/UX</span>
-              </span>
-              <span className="flex items-center gap-3">
-                <span className="relative flex size-3">
-                  <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-sky-400 opacity-75"></span>
-                  <span className="relative inline-flex size-3 rounded-full bg-sky-500"></span>
-                </span>
-                <span className="ml-2">API Development</span>
-              </span>
-            </div>
+    <section ref={ref}>
+      <div
+        ref={sectionRef}
+        className="py-14 bg-linear-to-b from-[#09071e] to-[#282857]"
+      >
+        <Container className="com:max-w-400 lap:max-w-400 com:mx-auto lap:mx-auto small:px-3 small:mx-0 tab:px-3 tab:mx-0 com:px-0 lap:px-0">
+          <div ref={headingRef} className="mb-20">
+            <h2 className="text-4xl font-bold text-center animated-gradient-text font-Inter">
+              About Me
+            </h2>
+            <p className="text-center text-[18px] font-medium small:w-auto tab:w-auto lap:max-w-2xl com:max-w-2xl font-Inter mt-4 text-gray-300 mx-auto">
+              Get to know more about my background, experience, and what drives me as a developer
+            </p>
           </div>
-          <div className="flex flex-col items-center gap-5 ">
-            <div ref={cardRef} className="relative group">
-              <div className="absolute inset-0 bg-linear-to-r from-purple-500 to-cyan-500 rounded-2xl blur-xl opacity-20 group-hover:opacity-30 transition-opacity duration-300"></div>
-              <div className="w-lg h-auto p-5 border border-gray-500/30 rounded-2xl relative bg-gray-800/60 backdrop-blur-lg sm:p-5 md:p-6 hover:border-gray-500/50 transition-all duration-300 shadow-2xl shadow-black/30 group-hover:scale-105 hover:shadow-purple-500/10">
-                <h4 className="text-[20px] font-Inter font-medium flex items-center gap-2.5 text-white mb-3">
-                  <span>
-                    <MdOutlineMailOutline size={24} color="purple" />
-                  </span>
-                  Contact Information
-                </h4>
-                <span className="flex items-center gap-3 mb-3">
-                  <IoLocationOutline size={18} color="cyan" /> Dhaka, Bangladesh
-                </span>
-                <span className="flex items-center gap-3 mb-3">
-                  <IoCallOutline size={18} color="cyan" /> +8801887604100
-                </span>
-                <span className="flex items-center gap-3 mb-3">
-                  <MdOutlineMailOutline size={18} color="cyan" />
-                  mahammudhassanlimon@gmail.com
-                </span>
-              </div>
-            </div>
-            <div ref={cardRef2} className="relative group">
-              <div className="absolute inset-0 bg-linear-to-r from-green-500 to-emerald-500 rounded-2xl blur-xl opacity-20 group-hover:opacity-30 transition-opacity duration-300"></div>
-              <div className="w-lg h-auto p-5 border border-gray-500/30 rounded-2xl relative bg-gray-800/60 backdrop-blur-lg sm:p-5 md:p-6 hover:border-gray-500/50 transition-all duration-300 shadow-2xl shadow-black/30 group-hover:scale-105 hover:shadow-emerald-500/10">
-                <h4 className="text-[20px] font-Inter font-medium flex items-center gap-2.5 text-white mb-3">
-                  <span>
-                    <IoLanguageSharp size={24} color="purple" />
-                  </span>
-                  Languages
-                </h4>
-                <button className="text-[14px] font-Inter font-medium text-white bg-cyan-700/30  border border-cyan-500 py-2 px-3 rounded-full">
-                  English
-                </button>
-                <button className="text-[14px] font-Inter font-medium text-white bg-cyan-700/30 ml-2.5 border border-cyan-500 py-2 px-3 rounded-full">
-                  Bangla (Native)
-                </button>
-                <button className="text-[14px] font-Inter font-medium text-white bg-cyan-700/30 ml-2.5 border border-cyan-500 py-2 px-3 rounded-full">
-                  Hindi
-                </button>
-              </div>
-            </div>
-            <div ref={cardRef3} className="relative group">
-              <div className="absolute inset-0 bg-linear-to-r from-orange-500 to-red-500 rounded-2xl blur-xl opacity-20 group-hover:opacity-30 transition-opacity duration-300"></div>
-              <div className="w-lg h-auto p-5 border border-gray-500/30 rounded-2xl relative bg-gray-800/60 backdrop-blur-lg sm:p-5 md:p-6 hover:border-gray-500/50 transition-all duration-300 shadow-2xl shadow-black/30 group-hover:scale-105 hover:shadow-red-500/10">
-                <h4 className="text-[20px] font-Inter font-medium flex items-center gap-2.5 text-white mb-3">
-                  <span>
-                    <LiaCertificateSolid size={24} color="purple" />
-                  </span>
-                  Certifications
-                </h4>
-                <div className="flex items-center justify-between">
-                  <span className="text-white text-[16px] font-medium font-Inter">
-                    MERN Stack Development
-                  </span>
-                  <a
-                    href="https://certificate.citsmp.com/?certificate_id=MERN-23110816"
-                    className="underline text-[13px] font-medium font-Inter text-cyan-500 cursor-pointer"
+          <div className=" flex small:flex-col tab:flex-col lap:flex-row com:flex-row small:items-start tab:items-start lap:items-center com:items-center gap-10 small:justify-normal tab:justify-normal lap:justify-center com:justify-center ">
+            <div>
+              <div className="relative small:w-auto tab:w-auto lap:w-120 com:w-120 h-90 bg-black rounded-2xl overflow-hidden small:mb-5 tab:mb-3 lap:mb-3 com:mb-3 border border-purple-600 p-1">
+                <video
+                  ref={videoRef}
+                  src="/intro.mp4"
+                  className="w-full h-full object-contain cursor-pointer rounded-2xl"
+                  preload="metadata"
+                  onClick={togglePlay}
+                  onEnded={handleEnded}
+                />
+
+                {!isPlaying && (
+                  <button
+                    onClick={togglePlay}
+                    className="absolute inset-0 flex items-center justify-center"
                   >
-                    View
-                  </a>
+                    <div className="bg-white hover:bg-gray-300 transition duration-300 rounded-full flex items-center justify-center w-15 h-15">
+                      {isEnded ? (
+                        <span className="w-8 h-8 cursor-pointer">
+                          <img
+                            className="w-full h-full object-contain"
+                            src="/Replay.png"
+                            alt="Replay"
+                          />
+                        </span>
+                      ) : (
+                        <span className="w-8 h-8 cursor-pointer">
+                          <img
+                            className="w-full h-full object-contain"
+                            src="/Play.png"
+                            alt="Play"
+                          />
+                        </span>
+                      )}
+                    </div>
+                  </button>
+                )}
+              </div>
+
+              <h3 className="text-2xl font-Inter font-bold text-cyan-400 mb-4">
+                What I Bring
+              </h3>
+              <div className=" grid grid-cols-2 gap-3 items-center">
+                <span className="flex items-center gap-3">
+                  <span className="relative flex size-3">
+                    <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-purple-400 opacity-75"></span>
+                    <span className="relative inline-flex size-3 rounded-full bg-purple-500"></span>
+                  </span>
+                  <span className="ml-2">Performance Optimization</span>
+                </span>
+                <span className="flex items-center gap-3">
+                  <span className="relative flex size-3">
+                    <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-sky-400 opacity-75"></span>
+                    <span className="relative inline-flex size-3 rounded-full bg-sky-500"></span>
+                  </span>
+                  <span className="ml-2">Scalable Architecture</span>
+                </span>
+                <span className="flex items-center gap-3">
+                  <span className="relative flex size-3">
+                    <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-purple-400 opacity-75"></span>
+                    <span className="relative inline-flex size-3 rounded-full bg-purple-500"></span>
+                  </span>
+                  <span className="ml-2">Modern UI/UX</span>
+                </span>
+                <span className="flex items-center gap-3">
+                  <span className="relative flex size-3">
+                    <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-sky-400 opacity-75"></span>
+                    <span className="relative inline-flex size-3 rounded-full bg-sky-500"></span>
+                  </span>
+                  <span className="ml-2">API Development</span>
+                </span>
+              </div>
+            </div>
+            <div className="flex flex-col items-center gap-5 ">
+              <div ref={cardRef} className="relative group">
+                <div className="absolute inset-0 bg-linear-to-r from-purple-500 to-cyan-500 rounded-2xl blur-xl opacity-20 group-hover:opacity-30 transition-opacity duration-300"></div>
+                <div className="small:w-90 tab:w-100 lap:w-lg com:w-lg  h-auto p-5 border border-gray-500/30 rounded-2xl relative bg-gray-800/60 backdrop-blur-lg sm:p-5 md:p-6 hover:border-gray-500/50 transition-all duration-300 shadow-2xl shadow-black/30 group-hover:scale-105 hover:shadow-purple-500/10">
+                  <h4 className="text-[20px] font-Inter font-medium flex items-center gap-2.5 text-white mb-3">
+                    <span>
+                      <MdOutlineMailOutline size={24} color="purple" />
+                    </span>
+                    Contact Information
+                  </h4>
+                  <span className="flex items-center gap-3 mb-3">
+                    <IoLocationOutline size={18} color="cyan" /> Dhaka,
+                    Bangladesh
+                  </span>
+                  <span className="flex items-center gap-3 mb-3">
+                    <IoCallOutline size={18} color="cyan" /> +8801887604100
+                  </span>
+                  <span className="flex items-center gap-3 mb-3">
+                    <MdOutlineMailOutline size={18} color="cyan" />
+                    mahammudhassanlimon@gmail.com
+                  </span>
+                </div>
+              </div>
+              <div ref={cardRef2} className="relative group">
+                <div className="absolute inset-0 bg-linear-to-r from-green-500 to-emerald-500 rounded-2xl blur-xl opacity-20 group-hover:opacity-30 transition-opacity duration-300"></div>
+                <div className="small:w-90 tab:w-100 lap:w-lg com:w-lg  h-auto p-5 border border-gray-500/30 rounded-2xl relative bg-gray-800/60 backdrop-blur-lg sm:p-5 md:p-6 hover:border-gray-500/50 transition-all duration-300 shadow-2xl shadow-black/30 group-hover:scale-105 hover:shadow-emerald-500/10">
+                  <h4 className="text-[20px] font-Inter font-medium flex items-center gap-2.5 text-white mb-3">
+                    <span>
+                      <IoLanguageSharp size={24} color="purple" />
+                    </span>
+                    Languages
+                  </h4>
+                  <button className="text-[14px] font-Inter font-medium text-white bg-cyan-700/30  border border-cyan-500 py-2 px-3 rounded-full">
+                    English
+                  </button>
+                  <button className="text-[14px] font-Inter font-medium text-white bg-cyan-700/30 ml-2.5 border border-cyan-500 py-2 px-3 rounded-full">
+                    Bangla (Native)
+                  </button>
+                  <button className="text-[14px] font-Inter font-medium text-white bg-cyan-700/30 ml-2.5 border border-cyan-500 py-2 px-3 rounded-full">
+                    Hindi
+                  </button>
+                </div>
+              </div>
+              <div ref={cardRef3} className="relative group">
+                <div className="absolute inset-0 bg-linear-to-r from-orange-500 to-red-500 rounded-2xl blur-xl opacity-20 group-hover:opacity-30 transition-opacity duration-300"></div>
+                <div className="small:w-90 tab:w-100 lap:w-lg com:w-lg  h-auto p-5 border border-gray-500/30 rounded-2xl relative bg-gray-800/60 backdrop-blur-lg sm:p-5 md:p-6 hover:border-gray-500/50 transition-all duration-300 shadow-2xl shadow-black/30 group-hover:scale-105 hover:shadow-red-500/10">
+                  <h4 className="text-[20px] font-Inter font-medium flex items-center gap-2.5 text-white mb-3">
+                    <span>
+                      <LiaCertificateSolid size={24} color="purple" />
+                    </span>
+                    Certifications
+                  </h4>
+                  <div className="flex items-center justify-between">
+                    <span className="text-white text-[16px] font-medium font-Inter">
+                      MERN Stack Development
+                    </span>
+                    <a
+                      href="https://certificate.citsmp.com/?certificate_id=MERN-23110816"
+                      className="underline text-[13px] font-medium font-Inter text-cyan-500 cursor-pointer"
+                    >
+                      View
+                    </a>
+                  </div>
                 </div>
               </div>
             </div>
           </div>
-        </div>
-      </Container>
+        </Container>
+      </div>
     </section>
   );
-};
+});
 
 export default Section2;

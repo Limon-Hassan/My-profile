@@ -20,7 +20,7 @@ const ProjectsCard = forwardRef(({ data }: { data: any }, ref: any) => {
     <a
       href={data.Link}
       ref={ref}
-      className="animated-product-box w-131.25 h-87.5 group cursor-pointer hover:scale-95 transition-all duration-500 ease-in-out"
+      className="animated-product-box small:w-auto tab:w-auto lap:w-131.25 com:w-131.25 small:h-70 tab:h-87.5 lap:h-87.5 com:h-87.5 group cursor-pointer hover:scale-95 transition-all duration-500 ease-in-out"
     >
       <div className="content bg-purple-700/70 hover:bg-black p-5  transition-transform duration-300">
         <img
@@ -33,7 +33,7 @@ const ProjectsCard = forwardRef(({ data }: { data: any }, ref: any) => {
             e.stopPropagation();
             window.open(data.github, '_blank');
           }}
-          className="hidden z-9999 absolute top-4 right-4 w-12 h-12 group-hover:flex items-center justify-center bg-purple-400 text-white rounded-full transition-all duration-300 cursor-pointer"
+          className="small:flex tab:flex com:hidden lap:hidden z-9999 absolute top-4 right-4 w-12 h-12 group-hover:flex items-center justify-center bg-purple-400 text-white rounded-full transition-all duration-300 cursor-pointer"
         >
           <IoLogoGithub size={30} />
         </button>
