@@ -20,7 +20,7 @@ const Section4 = forwardRef<HTMLElement>((props, ref) => {
       title: 'Evato E-Commerce',
       like: 22,
       github: 'https://github.com/Limon-Hassan/Ekomart-E-commarce-Full',
-      Link: 'https://ekomart-e-commarce.mahammudhassanlimon.workers.dev',
+      Link: 'https://ekomart-e-commarce.withlimon.workers.dev',
     },
     {
       id: 2,
@@ -28,7 +28,7 @@ const Section4 = forwardRef<HTMLElement>((props, ref) => {
       title: 'Automatic News app',
       like: 9,
       github: 'https://github.com/Limon-Hassan/Interview_Project-',
-      Link: 'https://interview-project-08sw.onrender.com/news',
+      Link: 'https://interview-project-cde.pages.dev/news',
     },
     {
       id: 3,
@@ -44,7 +44,7 @@ const Section4 = forwardRef<HTMLElement>((props, ref) => {
       title: 'Mili Chat App || Realtime',
       like: 26,
       github: 'https://github.com/Limon-Hassan/Mili-Chat-app',
-      Link: 'https://mili-chat-app.onrender.com/Login',
+      Link: 'https://mili-chat-app.pages.dev/Login',
     },
     {
       id: 5,
