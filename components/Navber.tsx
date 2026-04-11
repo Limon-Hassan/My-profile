@@ -7,7 +7,6 @@ import gsap from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import { ScrollToPlugin } from 'gsap/ScrollToPlugin';
 import { RxHamburgerMenu } from 'react-icons/rx';
-import RadialMenu from './anime/RedialMenuForMobile';
 
 gsap.registerPlugin(ScrollTrigger, ScrollToPlugin);
 
