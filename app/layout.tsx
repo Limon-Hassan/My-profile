@@ -24,8 +24,8 @@ export const metadata: Metadata = {
     'Frontend Developer',
     'Backend Developer',
     'UI/UX Designer',
-    "JavaScript",
-    "TypeScript",
+    'JavaScript',
+    'TypeScript',
   ],
 };
 
@@ -36,6 +36,10 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
+      <meta
+        name="google-site-verification"
+        content="pGN27yJE9LEHS2byaNn7sRypQgLx1sZh57kWq4uchEY"
+      />
       <body className={`${inter.variable} antialiased`}>
         <CustomCursor />
         <SmoothScroll />
