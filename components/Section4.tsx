@@ -16,7 +16,7 @@ const Section4 = forwardRef<HTMLElement>((props, ref) => {
   let projects = [
     {
       id: 1,
-      image: '/New folder/Evarto.png',
+      image: '/Evarto.png',
       title: 'Evato E-Commerce',
       like: 22,
       github: 'https://github.com/Limon-Hassan/Ekomart-E-commarce-Full',
@@ -24,7 +24,7 @@ const Section4 = forwardRef<HTMLElement>((props, ref) => {
     },
     {
       id: 2,
-      image: '/New folder/News.png',
+      image: '/News.png',
       title: 'Automatic News app',
       like: 9,
       github: 'https://github.com/Limon-Hassan/Interview_Project-',
@@ -32,7 +32,7 @@ const Section4 = forwardRef<HTMLElement>((props, ref) => {
     },
     {
       id: 3,
-      image: '/New folder/client.png',
+      image: '/client.png',
       title: 'Agency service',
       like: 12,
       github: 'https://github.com/Limon-Hassan/Client-project-',
@@ -40,7 +40,7 @@ const Section4 = forwardRef<HTMLElement>((props, ref) => {
     },
     {
       id: 4,
-      image: '/New folder/chat-app.png',
+      image: '/chat-app.png',
       title: 'Mili Chat App || Realtime',
       like: 26,
       github: 'https://github.com/Limon-Hassan/Mili-Chat-app',
@@ -48,7 +48,7 @@ const Section4 = forwardRef<HTMLElement>((props, ref) => {
     },
     {
       id: 5,
-      image: '/New folder/digitalDeshboard.png',
+      image: '/digitalDeshboard.png',
       title: 'E-Commerce Dashboard',
       like: 38,
       github: 'https://github.com/Limon-Hassan/Taranga-e-com',
@@ -56,7 +56,7 @@ const Section4 = forwardRef<HTMLElement>((props, ref) => {
     },
     {
       id: 6,
-      image: '/New folder/delux.png',
+      image: '/delux.png',
       title: 'Deluxe x deal || hardware shop',
       like: 21,
       github: 'https://github.com/Limon-Hassan/Taranga-e-com',
