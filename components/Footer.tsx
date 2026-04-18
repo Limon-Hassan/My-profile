@@ -4,7 +4,7 @@ import FooterPerticles from './anime/FotterPerticles';
 const Footer = () => {
   return (
     <>
-      <div className="footer relative overflow-hidden w-full h-screen ">
+      <div className="footer relative overflow-hidden w-full h-screen hidden">
         <FooterPerticles />
       </div>
     </>

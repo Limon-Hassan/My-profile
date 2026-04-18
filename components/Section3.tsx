@@ -44,7 +44,9 @@ const Section3 = forwardRef<HTMLDivElement>((props, ref) => {
       technologies: [
         { name: 'Node.js', img: '/node.png' },
         { name: 'Express.js', img: '/express.png' },
+        { name: 'Nest.js', img: '/nestjs.png' },
         { name: 'GraphQL', img: '/graphql.svg' },
+        { name: 'BullMQ', img: '/bull.png' },
       ],
     },
     {
@@ -79,6 +81,8 @@ const Section3 = forwardRef<HTMLDivElement>((props, ref) => {
         { name: 'Linux', img: '/linux_226772.png' },
         { name: 'Git', img: '/git.png' },
         { name: 'VPS', img: '/Vercel.svg' },
+        { name: 'WebRTC', img: '/video-call.png' },
+        { name: 'Socket.io', img: '/socket.svg' },
       ],
     },
   ];
@@ -158,6 +162,16 @@ const Section3 = forwardRef<HTMLDivElement>((props, ref) => {
                 <Skills_Cards skill={skill} />
               </div>
             ))}
+          </div>
+          <div className="flex items-center justify-center mt-10 ">
+            <button className="w-50 h-16 bg-[#09071e] text-gray-500 font-bold justify-center flex flex-col items-center border border-purple-500">
+              <span className="font-bold text-white text-[24px]">30+</span>
+              Technologies
+            </button>
+            <button className="w-50 h-16 bg-[#09071e] text-gray-500 font-bold justify-center flex flex-col items-center border border-purple-500">
+              <span className="font-bold text-white text-[24px]">3+</span> Years
+              of Experience
+            </button>
           </div>
         </Container>
       </div>

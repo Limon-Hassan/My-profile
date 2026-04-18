@@ -5,7 +5,6 @@ import { LuMessageCircle } from 'react-icons/lu';
 import { CiUser } from 'react-icons/ci';
 import { MdOutlineEmail } from 'react-icons/md';
 import { GrDocumentText } from 'react-icons/gr';
-import { BsSend } from 'react-icons/bs';
 import SendButton from './Button/SendButton';
 import { FiPhone } from 'react-icons/fi';
 import { IoLocationOutline } from 'react-icons/io5';
@@ -29,6 +28,7 @@ const GetInTouch = forwardRef<HTMLElement>((props, ref) => {
   let cardRef2 = useRef(null);
   let cardRef3 = useRef(null);
   let cardRef4 = useRef(null);
+  let cardRef5 = useRef(null);
 
   useEffect(() => {
     const ctx = gsap.context(() => {
@@ -387,6 +387,20 @@ const GetInTouch = forwardRef<HTMLElement>((props, ref) => {
                       GitHub
                     </a>
                   </div>
+                </div>
+                <div
+                  ref={cardRef5}
+                  className=" small:w-85 tab:w-85 lap:w-full com:w-full  h-auto bg-gray-500/20 p-5 rounded-xl shadow-lg shadow-gray-500/20 hover:bg-gray-500/30 transition-colors duration-300"
+                >
+                  <h4 className="text-[20px] font-bold font-Inter text-white mb-3">
+                    # Please Notice That
+                  </h4>
+                  <p className="text-[14px] font-Inter font-medium text-white">
+                    I am Independent Full-Stack Developer currently working on
+                    client-based and personal projects. Actively seeking remote
+                    opportunities (part-time, full-time, or project-based) and
+                    open to collaborating globally with teams and clients.
+                  </p>
                 </div>
               </div>
             </div>

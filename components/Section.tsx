@@ -214,17 +214,22 @@ const Section = forwardRef<HTMLElement>((props, ref) => {
             </div>
             <div
               ref={peraRef}
-              className="small:w-auto tab:w-auto lap:w-120 com:w-120 font-Inter text-[16px] font-normal text-gray-300"
+              className="small:w-auto tab:w-auto lap:w-120 com:w-138.75 font-Inter text-[16px] font-normal text-gray-300"
             >
-              Full Stack Developer with 3 years of hand on development and fast
-              coding experience and 3 months of professional company experience.
-              Skilled in building scalable web applications with a strong focus
-              on performance, clean architecture, and user-friendly UI design. I
-              have a strong interest in developing high-quality e-commerce and
-              financial platforms, ensuring secure systems and smooth user
-              experience.
+              Full Stack Developer focused on building scalable SaaS
+              applications with clean architecture, fast performance, and modern
+              user experiences. I actively work on designing efficient project
+              architectures, optimizing application performance, and delivering
+              smooth, production-ready UI/UX. I have hands-on experience solving
+              real-world problems and rapidly adapting to new technologies.
+              Currently learning and exploring AI-powered development, including
+              <b className="text-blue-400 ml-1">
+                LLM APIs (OpenAI, Gemini, Claude), LangChain, and Vector
+                Databases (Pinecone, ChromaDB)
+              </b>
+              , with a focus on building intelligent application features.
             </div>
-            <div ref={linkRef} className="my-3">
+            <div ref={linkRef} className="mb-2">
               <LinkButton />
             </div>
           </div>

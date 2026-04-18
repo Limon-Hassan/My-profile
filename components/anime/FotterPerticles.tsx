@@ -7,7 +7,7 @@ type Star = {
   size: number;
   dx: number;
   dy: number;
-  angle: number; 
+  angle: number;
 };
 
 type Trail = {
@@ -83,7 +83,7 @@ const FooterParticles = () => {
   }, []);
 
   return (
-    <div className="absolute inset-0 overflow-hidden z-0">
+    <div className="absolute inset-0 overflow-hidden z-0 hidden">
       {stars.map((star, i) => (
         <div
           key={i}

@@ -14,7 +14,7 @@ const CustomCursor = () => {
 
     const moveMouse = (e: MouseEvent) => {
       mouseX = e.clientX;
-      mouseY = e.clientY + window.scrollY; 
+      mouseY = e.clientY + window.scrollY;
     };
 
     document.addEventListener('mousemove', moveMouse);
@@ -43,8 +43,14 @@ const CustomCursor = () => {
 
   return (
     <>
-      <div ref={cursorRef} className="cursor"></div>
-      <div ref={followerRef} className="cursor-follower"></div>
+      <div
+        ref={cursorRef}
+        className="cursor small:hidden tab:hidden lap:block com:block"
+      ></div>
+      <div
+        ref={followerRef}
+        className="cursor-follower small:hidden tab:hidden lap:block com:block"
+      ></div>
     </>
   );
 };
