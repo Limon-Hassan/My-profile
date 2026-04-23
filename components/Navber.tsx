@@ -138,7 +138,7 @@ const Navber = ({ sectionRefs }: Props) => {
   };
 
   const handleResumeClick = () => {
-    window.open('/Mahammud_Hassan_Limon_Resume.pdf', '_blank');
+    window.open('/Mahammud_Hassan_Limon_Full_Stack.pdf.pdf', '_blank');
   };
 
   useEffect(() => {
