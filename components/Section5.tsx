@@ -22,10 +22,11 @@ const Section5 = () => {
       description:
         'I was responsible for managing the design and backend authentication of their e-commerce website. I also handled the project architecture and built a responsive, user-friendly UI for the target audience.',
       keyAchievements: [
-        'Improved website performance by 40%',
-        'Implemented secure authentication system',
-        'Developed responsive UI for improved user experience',
-        'Integrated Steadfast Courier API for logistics management',
+        'Architected and improved RESTful APIs using Node.js, achieving a 46% improvement in server response performance.',
+        'Engineered a secure authentication system utilizing JWT and Google OAuth integration.',
+        'Developed full-stack SaaS features with a focus on scalability and long-term maintainability.',
+        'Collaborated with cross-functional teams to deliver user-focused features and conduct systemlevel debugging.',
+        'Designed responsive and modular UI components with React and Tailwind CSS.',
       ],
       technologies: [
         { name: 'React.js', icon: '/React.png' },
@@ -45,10 +46,11 @@ const Section5 = () => {
       description:
         'I was deployed a full-stack web application for a client, handling both frontend and backend development. I implemented features such as Product management and order management and real-time updates to enhance the user experience.',
       keyAchievements: [
-        'Optimized backend queries and implemented caching, improving overall website performance by 80%',
-        'Handled 10,000+ users per minute without performance issues',
-        'Designed and implemented a high-performance responsive UI improving UX',
-        'Dashboard for admin to manage the website',
+        'Built a revenue-generating full-stack e-commerce platform using React, Next.js, Node.js, and MongoDB.',
+        'Streamlined database queries and implemented caching, resulting in an 80% increase in overall website performance.',
+        'Successfully handled load testing for 10,000+ concurrent requests per minute with zero downtime.',
+        'Deployed application on Ubuntu VPS (Hostinger), configuring domain setup and production-ready server environments.',
+        'Constructed a high-performance admin dashboard for full product management and inventory control',
       ],
       technologies: [
         { name: 'React.js', icon: '/React.png' },

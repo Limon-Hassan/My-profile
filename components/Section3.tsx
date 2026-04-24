@@ -35,12 +35,13 @@ const Section3 = forwardRef<HTMLDivElement>((props, ref) => {
         { name: 'Bootstrap', img: '/Bootstrap.png' },
         { name: 'Redux', img: '/redux.svg' },
         { name: 'Gsap', img: '/gsap.jfif' },
+        { name: 'Shadcn/UI', img: '/jfif' },
       ],
     },
     {
       skillImage: '/cogwheel.png',
       title: 'Backend Technologies',
-      proficiency: 3,
+      proficiency: 5,
       technologies: [
         { name: 'Node.js', img: '/node.png' },
         { name: 'Express.js', img: '/express.png' },
@@ -57,6 +58,7 @@ const Section3 = forwardRef<HTMLDivElement>((props, ref) => {
         { name: 'MongoDB', img: '/mongodb.png' },
         { name: 'Mongoose', img: '/mongoose.png' },
         { name: 'MySQL', img: '/mysql.png' },
+        { name: 'PostgreSQL', img: '/postgreesql.png' },
         { name: 'Prisma', img: '/prisma-orm.png' },
         { name: 'Redis', img: '/redis.png' },
       ],
@@ -71,18 +73,23 @@ const Section3 = forwardRef<HTMLDivElement>((props, ref) => {
         { name: 'Vercel', img: '/Vercel.svg' },
         { name: 'CI/CD', img: '/cicd.png' },
         { name: 'CDN', img: '/cdn.svg' },
+        { name: 'Docker', img: '/docker.svg' },
       ],
     },
     {
       skillImage: '/settings.png',
-      title: 'Tools & Others',
-      proficiency: 2,
+      title: 'AI & Real-Time & Others',
+      proficiency: 5,
       technologies: [
         { name: 'Linux', img: '/linux_226772.png' },
         { name: 'Git', img: '/git.png' },
         { name: 'VPS', img: '/Vercel.svg' },
+        { name: 'Jest', img: '/jest.svg' },
         { name: 'WebRTC', img: '/video-call.png' },
         { name: 'Socket.io', img: '/socket.svg' },
+        { name: 'LangChain', img: '/langchain.svg' },
+        { name: 'Vector DB', img: '/artificial-intelligence.png' },
+        { name: 'LLM APIs', img: 'liki' },
       ],
     },
   ];
@@ -163,14 +170,14 @@ const Section3 = forwardRef<HTMLDivElement>((props, ref) => {
               </div>
             ))}
           </div>
-          <div className="flex items-center justify-center mt-10 ">
-            <button className="w-50 h-16 bg-[#09071e] text-gray-500 font-bold justify-center flex flex-col items-center border border-purple-500">
+          <div className="small:flex-col tab:flex-col lap:flex-row com:flex-row flex items-center justify-center mt-10 ">
+            <button className="w-80 h-16 bg-[#09071e] text-gray-500 font-bold justify-center flex flex-col items-center border border-purple-500">
               <span className="font-bold text-white text-[24px]">30+</span>
               Technologies
             </button>
-            <button className="w-50 h-16 bg-[#09071e] text-gray-500 font-bold justify-center flex flex-col items-center border border-purple-500">
+            <button className="w-80 h-16 bg-[#09071e] text-gray-500 font-bold justify-center flex flex-col items-center border border-purple-500 ">
               <span className="font-bold text-white text-[24px]">3+</span> Years
-              of Experience
+              of Hands-on Coding Experience
             </button>
           </div>
         </Container>
