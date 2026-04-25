@@ -16,9 +16,9 @@ const Section5 = () => {
       id: 1,
       company: 'AB Seed Company',
       position: 'Mern Stack Developer',
-      duration: 'Nov 2025 - Jan 2026',
+      duration: 'Nov 2025 - Mar 2026',
       location: 'Mohammadpur Dhaka',
-      type: 'Full-time • 3 mos',
+      type: 'Full-time • 5 mos',
       description:
         'I was responsible for managing the design and backend authentication of their e-commerce website. I also handled the project architecture and built a responsive, user-friendly UI for the target audience.',
       keyAchievements: [
